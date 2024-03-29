@@ -19,5 +19,9 @@ if (isset($routes[$path])) {
 } else {
     // Handle 404 - Not Found
     http_response_code(404);
-    echo '404 - Not Found';
+    echo "
+        <div style='display: flex; flex-direction: row; height: 100vh; width: 100%; align-items: center; justify-content: center;'>
+            <p style='font-size: 25px;'>404 - Page Not Found</p>
+        <div>
+    ";
 }

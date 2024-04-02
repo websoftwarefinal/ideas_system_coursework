@@ -5,7 +5,7 @@ const yValues = [12, 5, 3, 4];
 const barColors = ["#fff18f", "#de425b","#353c8f","#488f31"];
 
 new Chart("myChart", {
-  type: "bar",
+  type: "horizontalBar",
   data: {
     labels: xValues,
     datasets: [{

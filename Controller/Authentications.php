@@ -4,10 +4,6 @@ require_once __DIR__ . './../Helpers/SessionManager.php';
 require_once __DIR__ . './../Models/User.php';
 
 class Authentications{
-    public function register(){
-        return "I am the register";
-    }
-
     public function login(string $username, string $password){
         $session = new SessionManager();
 
@@ -19,7 +15,7 @@ class Authentications{
 
         if($auth){
             $session->unsetSession('error');
-            
+
             $session->set('username', $auth['email_address']);
             $session->set('first_name', $auth['first_name']);
             $session->set('last_name', $auth['last_name']);

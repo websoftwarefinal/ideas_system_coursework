@@ -1,14 +1,20 @@
 <?php 
 require_once __DIR__ . '/../../Helpers/SessionManager.php';
-require_once __DIR__ . '/../../Helpers/Database.php';
 
-$db = new Database('users');
+require_once __DIR__ . '/../../Models/User.php';
 
-$users = $db->get();
+$users = new User();
 
-foreach($users as $user){
+foreach($users->get('Staff') as $user){
     echo $user['first_name'] . ' ' . $user['last_name'] . '<br />';
 }
 
 $session = new SessionManager();
 $session->sessionProtection();
+?>
+
+
+<form action="./Controller/Authentications.php" method="post">
+    <input type="hidden" name="logout" id="logout">
+    <button type="submit">Logout</button>
+</form>

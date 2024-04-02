@@ -3,11 +3,8 @@ require_once __DIR__ . '/DotEnv.php';
 
 class Database{
     protected $pdo;
-    private $table;
 
-    public function __construct($table){  
-        $this->table = $table;
-
+    public function __construct(){  
         try {
             // Getting data database details from the .env file
             $dotenv = new DotEnv(__DIR__ . '/../.env');
@@ -26,33 +23,6 @@ class Database{
             $this->pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
-        }
-    }
-
-    public function get(){
-        try {
-            $query = "SELECT * FROM $this->table";
-
-            $stmt = $this->pdo->query($query);
-
-            return $stmt->fetchAll();
-
-        } catch (PDOException $e) {
-            echo "Query failed: " . $e->getMessage();
-        }
-    }
-
-    public function select($columns){
-        try {
-            if(count($columns) > 0){
-                $cols = implode(', ', $columns);
-
-                $query = "SELECT $cols FROM $this->table";
-                $stmt = $this->pdo->query($query);
-                return $stmt->fetchAll();
-            }
-        } catch (PDOException $e) {
-            echo "Query failed: " . $e->getMessage();
         }
     }
 }

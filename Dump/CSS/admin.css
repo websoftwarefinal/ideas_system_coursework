@@ -257,7 +257,6 @@ hr{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    align-items: center;
 }
 
 .statistics h2{
@@ -278,7 +277,8 @@ hr{
     width: fit-content;
     display: flex;
     justify-content: space-between;
-    flex-wrap: nowrap;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
 .statistics table{

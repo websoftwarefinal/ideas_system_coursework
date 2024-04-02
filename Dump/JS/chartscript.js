@@ -17,7 +17,7 @@ new Chart("myChart", {
     legend: {display: false},
     title: {
       display: true,
-      text: "Browsers Used"
+      text: "Number of Users"
     }
   }
 });

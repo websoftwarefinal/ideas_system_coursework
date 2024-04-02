@@ -90,7 +90,8 @@
             <h2>Statistics</h2>
            
         <!-- BROWSER INFORMATION -->
-            <div class="browsers">   
+            <div class="browsers">
+                 <h3>Browsers Used</h3>   
                 <canvas id="myChart"></canvas>   
             </div>
                

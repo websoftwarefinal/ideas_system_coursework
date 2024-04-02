@@ -2,10 +2,12 @@
 // Define routes and their corresponding actions
 $routes = [
     '/' => 'resources/views/index.php',
-    '/home' => 'resources/views/home.php',
     '/academics' => 'resources/views/academics.php',
     '/about-us' => 'resources/views/about-us.php',
-    '/apply' => 'resources/views/apply.php'
+    '/apply' => 'resources/views/apply.php',
+
+    '/home' => 'resources/views/home.php',
+    '/admin-controls' => 'resources/views/admin-controls.php',
 ];
 
 // Get the requested URL path

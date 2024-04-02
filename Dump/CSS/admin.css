@@ -144,7 +144,7 @@ header nav .userInfo{
 
 /* Account Management------------------------------ */
 .main .accountManagement{
-    height: calc(80vh + 65px);
+    height: 565px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;

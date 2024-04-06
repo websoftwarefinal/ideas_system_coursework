@@ -64,24 +64,38 @@ YOU CAN CHOOSE TO USE OTHER METHOD IF YOU WANT -->
 
     <div class="inputWrapper">
     <label for="number">Phone Number:*</label>
-    <input type="number" name="number" id="number" placeholder="Enter Phone Number" required>
+    <input type="tel" name="number" id="number" placeholder="Enter Phone Number" required>
+    </div>
+
+
+    <div class="inputWrapper">
+    <label for="email">E-Mail:*</label>
+    <input type="email" name="email" id="email" placeholder="Enter E-Mail" required>
     </div>
 
     <div class="inputWrapper">
     <label for="position">Position:*</label>
     <select name="position" id="position" required> 
-        <option value="admin">Administrator</option>
         <option value="" disabled selected hidden>Select Position</option>
+        <option value="admin">Administrator</option>
         <option value="qaCoordinator">QA Coordinator</option>
         <option value="qaMananger">QA Manager</option>
         <option value="staff">General</option>
     </select>
     </div>
 
+    <!-- i havent set any departments since we havent yet chosen what those will be -->
     <div class="inputWrapper">
-    <label for="email">E-Mail:*</label>
-    <input type="email" name="email" id="email" placeholder="Enter E-Mail" required>
+    <label for="department">Department:*</label>
+    <select name="department" id="department" required> 
+        <option value="" disabled selected hidden>Select Department</option>
+        <option value="admin">Administrator</option>
+        <option value="qaCoordinator">QA Coordinator</option>
+        <option value="qaMananger">QA Manager</option>
+        <option value="staff">General</option>
+    </select>
     </div>
+
 
     <div class="inputWrapper">
     <label for="pwd">Password:*</label>

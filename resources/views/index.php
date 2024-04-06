@@ -1,6 +1,5 @@
 <?php
-    require_once __DIR__ . '/../../Helpers/SessionManager.php';
-    $session = new SessionManager();
+    include __DIR__ . '/../../Helpers/Config.php';
 ?>
 
 <!DOCTYPE html>

@@ -22,6 +22,7 @@
             <div class="dropDown">
                 <img src="../../storage/images/user_badge.png" alt="">
                 <div class="userInfo">
+                    <h2>Welcome Administrator</h2>
                     <p class="email"> someone@gmail.com</p>
                     <p class="lastLogin">Last Login: 12/12/12</p>
                     <a href="" class="logoutButton">LOG OUT</a>

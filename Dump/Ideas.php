@@ -104,7 +104,6 @@
 
         <hr>
 
-        <!-- <div class="comment">
             <div class="box2">
                 <h3>Latest Comment</h3>
                 <p>Date: 12/12/12 12:12</p>
@@ -113,7 +112,7 @@
             <h3>From User</h3>
             <p>What the hell is this!?</p>
 
-        </div> -->
+   
     </a>
     
 

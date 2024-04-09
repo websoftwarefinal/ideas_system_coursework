@@ -1,4 +1,3 @@
-
 create database ewd_database;
 use ewd_database;
 
@@ -18,8 +17,6 @@ CREATE TABLE Categories (
 CREATE TABLE Department (
     department_id INT AUTO_INCREMENT PRIMARY KEY,
     department_name VARCHAR(50) NOT NULL,
-    role_id INT,
-    FOREIGN KEY (role_id) REFERENCES Roles(role_id)
 );
 
 -- Create Staff table
@@ -52,7 +49,6 @@ CREATE TABLE Idea (
     title VARCHAR(255) NOT NULL,
     description TEXT NOT NULL,
     date DATE NOT NULL,
-    likes INT DEFAULT 0,
     staff_id INT,
     FOREIGN KEY (staff_id) REFERENCES Staff(staff_id)
 );

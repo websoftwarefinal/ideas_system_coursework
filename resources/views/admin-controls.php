@@ -1,12 +1,18 @@
+<?php
+    require_once __DIR__ . '/../../Helpers/SessionManager.php';
+
+    $session = new SessionManager();
+    $session->sessionProtection();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../CSS/reset.css"> <!-- source of reset style sheet www.css-tricks.com -->
-    <link rel="stylesheet" href="../../CSS/main.css">
-    <link rel="stylesheet" href="../../CSS/admin.css">
+    <link rel="stylesheet" href="/resources/assets/css/reset.css"> <!-- source of reset style sheet www.css-tricks.com -->
+    <link rel="stylesheet" href="/resources/assets/css/main.css">
+    <link rel="stylesheet" href="/resources/assets/css/admin.css">
     <title>Administrator Controls</title>
 </head>
 <body>
@@ -17,15 +23,20 @@
     <p class="heading">Administrator Controls</p>
 
     <div class="user">
-            <img src="../../storage/images/user_badge.png" alt="">
+            <img src="/storage/images/user_badge.png" alt="">
 
             <div class="dropDown">
-                <img src="../../storage/images/user_badge.png" alt="">
+                <img src="/storage/images/user_badge.png" alt="">
                 <div class="userInfo">
                     <h2>Welcome Administrator</h2>
                     <p class="email"> someone@gmail.com</p>
                     <p class="lastLogin">Last Login: 12/12/12</p>
-                    <a href="" class="logoutButton">LOG OUT</a>
+
+                    <form action="/Controller/Authentications.php" method="post" style="width:100%;">
+                        <input type="hidden" name="logout" id="logout">
+                        <button type="submit"  class="logoutButton" style="width: 100%;">Logout</button>
+                    </form>
+                    <!-- <a href="" class="logoutButton">LOG OUT</a> -->
                 </div>
             </div>
     </div>
@@ -43,7 +54,7 @@
     <div class="accountManagement box">
         <div class="accountContainer">
             <h2>Account Management</h2>
-            <a href="CreateAccount.php" class="createAccount">Add Account</a>
+            <a href="/create-account" class="createAccount">Add Account</a>
         </div>
 
         <div class="accounts">
@@ -177,10 +188,10 @@
 
 
 <!-- Scripts -->
-<script src="../../JS/dropDown.js"></script>
+<script src="/resources/assets/js/dropDown.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
-<script src="../../JS/chartscript.js"></script>
+<script src="/resources/assets/js/chartscript.js"></script>
 </body>
 </html>

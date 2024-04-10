@@ -7,9 +7,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../CSS/reset.css"> <!-- source of reset style sheet www.css-tricks.com -->
-    <link rel="stylesheet" href="../../CSS/main.css">
-    <link rel="stylesheet" href="../../CSS/index.css">
+    <link rel="stylesheet" href="/resources/assets/css/reset.css"> <!-- source of reset style sheet www.css-tricks.com -->
+    <link rel="stylesheet" href="/resources/assets/css/main.css">
+    <link rel="stylesheet" href="/resources/assets/css/index.css">
     <title>Home</title>
 </head>
 <body>
@@ -18,7 +18,7 @@
 <header>
 <nav>
 <div class=logo>
-    <img src="Images/logo.png" alt="">
+    <img src="/storage/images/logo.png" alt="">
     <p>UNIVERSITY OF EWSD</p>
 </div>
     <ul>
@@ -59,7 +59,7 @@
 </main>
 
 <!-- Scripts -->
-<script src="JS/Menu.js"></script>
+<script src="/resources/assets/js/Menu.js"></script>
 
 </body>
 </html>

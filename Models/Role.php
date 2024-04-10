@@ -14,7 +14,7 @@ class Role extends Model{
             ]; // Assuming these are your columns
         
             $data = [
-                "Admin"
+                "QA Cordinator"
             ];
 
             $this->store("Roles", $columns, $data);

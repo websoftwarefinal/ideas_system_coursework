@@ -15,16 +15,10 @@ class Department extends Model{
 
             $columns = [
                 "department_name", 
-                "role_id", 
-                "email_address",
-                "password"
             ]; // Assuming these are your columns
         
             $data = [
-                "Administrators",
-                $role_id,
-                "admin@admin.com",
-                password_hash("12345678", PASSWORD_DEFAULT)
+                "IT Department",
             ];
 
             $this->store("Department", $columns, $data);

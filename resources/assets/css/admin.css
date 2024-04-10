@@ -4,107 +4,6 @@ body{
     background-color: rgba(94, 94, 94, 0.205);
 }
 
-/*Navigation----------------------------*/
-
-header nav p{
-    font-size: 2rem;
-   
-}
-
-
-header nav .loginInfo{
-    height: 60px;
-    gap: 5px;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-}
-
-header nav .user .logoutButton{
-    display: block;
-    border: 2px solid var(--MainColour);
-    border-radius: 5px;
-    font-size: 1rem;
-    color: var(--MainColour);
-    padding: 5px 10px;
-    margin: 5px;
-}
-
-header nav .user .logoutButton:hover{
-    background-color: var(--MainColour);
-    color: white;
-    transition: 0.1s ease-in;
-}
-
-
-
-header .user{
-    height: 60px;
-    position: relative;
-}
-
-header .user img{
-    height: 100%;
-}
-
-
-
-header .user.active{
-    transition: 0.1s ease-in;
-    padding: 5px;
-    border-radius: 30px;
-    background-color: rgb(114, 113, 113);
-}
-
-
-header .user .dropDown{
-display: none;
-    
-} 
-
-header .user.active .dropDown{
-    display: flex;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    background-color: white;
-    padding: 20px;
-    font-size: 1rem;
-    flex-direction: center;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 10px;
-    width: 230px;
-    height: fit-content;
-    position: absolute;
-    flex-wrap: nowrap;
-    right: 0;
-    text-align: center;
-}
-
-
-header .user .dropDown h2{
-        margin:5px;
-        font-weight: bold;
-        font-size: 1.3rem;
-        color: var(--MainColour);
-    } 
-    
-
-
-header .user .dropDown p{
-    font-size:1rem;
-    padding: 5px;
-    font-weight: bold;
-}
-
-header .user .dropDown img{
-    height: 60px;
-}
-
-
-header nav .userInfo{
-    max-width: 250px;
-}
-
 
 
 /*Main----------------------------*/
@@ -153,7 +52,7 @@ header nav .userInfo{
 
 /* Account Management------------------------------ */
 .main .accountManagement{
-    height: calc(80vh + 65px);
+    height: 565px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -334,6 +233,8 @@ canvas{
 
 
 /* Mobile and tablet set up----------------------------- */
+
+
 @media only screen and (max-width: 768px){
 
     nav .heading{
@@ -375,7 +276,7 @@ canvas{
     canvas{
         width: 100%;
     }
-
+    
 
 }
 

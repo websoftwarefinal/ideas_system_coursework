@@ -1,132 +1,259 @@
 /*Default Styling-------------------------------------------------*/
 
 :root {
- --MainColour: rgb(2, 4, 129) ;
- --MainColourHover: #0305699f;
- font-size: 15px;
-}
-
-body {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-
-a {
-    cursor: pointer;
-}
-
-form input{
-    border: 1px solid var(--MainColour);
-    border-radius: 10px;
-}
-
-form button{
-    cursor: pointer;
-}
-
-
-/*Navigation----------------------------------------------------*/
-
-header nav{
-    position: fixed;
-    top:0;
-    z-index: 1000;
-    width: 100%;
-    background-color: white;
-    font-weight: bold;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 70px;
-    padding: 0 30px 0 30px;
-    font-size: 1.5rem;
-}
-
-header nav ul {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-header nav ul li {
-    display: inline;
-    align-self: flex-start;
-    padding-left: 60px;
-    white-space: nowrap;
-}
-
-
-header nav li a:hover{
-    color: var(--MainColourHover);
-}
-
-
-.burgerMenu{
-    display: none;
-    cursor: pointer;
-}
-
-.burgerMenu .bar{
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-    background-color: black;
-}
-
-
-
-
-/* Burger Menu Transition and Activation----------------------------------------- */
-
-@media only screen and (max-width: 768px){
-
+    --MainColour: rgb(2, 4, 129) ;
+    --MainColourHover: #020341;
+    font-size: 15px;
+   }
+   
+   body {
+       font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   }
+   
+   
+   a {
+       cursor: pointer;
+   }
+   
+   form input{
+       border: 1px solid var(--MainColour);
+       border-radius: 10px;
+   }
+   
+   
+   
+   form select{
+       border: 1px solid var(--MainColour);
+       padding: 5px 10px;
+       border-radius: 0%;
+   
+   }
+   
+   form button{
+       cursor: pointer;
+   }
+   
+   
+    .errorMessage{
+       color: red;
+       font-size: 1rem;
+   }
+   
+   
+   /*Navigation----------------------------------------------------*/
+   
+   header nav{
+       position: fixed;
+       top:0;
+       z-index: 1000;
+       width: 100%;
+       background-color: white;
+       font-weight: bold;
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       height: 70px;
+       padding: 0 30px 0 30px;
+       font-size: 1.5rem;
+   }
+   
+   header nav ul {
+       display: flex;
+       justify-content: flex-start;
+       align-items: center;
+   }
+   
+   header nav ul li {
+       display: inline;
+       align-self: flex-start;
+       padding-left: 60px;
+       white-space: nowrap;
+   }
+   
+   
+   header nav li a:hover{
+       color: var(--MainColourHover);
+   }
+   
+   
+   .burgerMenu{
+       display: none;
+       cursor: pointer;
+   }
+   
+   .burgerMenu .bar{
+       display: block;
+       width: 25px;
+       height: 3px;
+       margin: 5px auto;
+       -webkit-transition: all 0.3s ease-in-out;
+       transition: all 0.3s ease-in-out;
+       background-color: black;
+   }
+   
     
-        /*Burger Menu---------------------*/
-
-        .burgerMenu{
-            display: block;
-        }
-
-
-        /* Animation---------------------------------- */
-         .burgerMenu.active .bar:nth-child(2){
-            opacity: 0;
-        }
-
-        .burgerMenu.active .bar:nth-child(1){
-            transform: translateY(8px) rotate(45deg);
-        }
-
-        .burgerMenu.active .bar:nth-child(3){
-            transform: translateY(-8px) rotate(-45deg);
-        } 
-
-
-        /* Menu Style--------------------------------------------- */
-
-        nav ul{
-            position: fixed;
-            left: -100%;
-            top: 70px;
-            gap: 0;
-            justify-content: flex-start;
-            flex-direction: column;
-            background-color: white;
-            width: 100%;
-            text-align: left;
-            transition:  0.3s;
-        }
-
-        nav ul li{
-            margin: 20px 0;
-        }
-
-
-        nav ul.active{
-            left: 0;
-        }
-
-}
+   /* Navigation for drop downs and other pages*/
+   
+   header nav p{
+       font-size: 2rem;
+      
+   }
+   
+   
+   header nav .loginInfo{
+       height: 60px;
+       gap: 5px;
+       align-items: center;
+       display: flex;
+       justify-content: center;
+   }
+   
+   header nav .user .logoutButton{
+       display: block;
+       border: 2px solid var(--MainColour);
+       border-radius: 5px;
+       font-size: 1rem;
+       color: var(--MainColour);
+       padding: 5px 10px;
+       margin: 5px;
+   }
+   
+   header nav .user .logoutButton:hover{
+       background-color: var(--MainColour);
+       color: white;
+       transition: 0.1s ease-in;
+   }
+   
+   
+   
+   header .user{
+       height: 60px;
+       position: relative;
+   }
+   
+   header .user img{
+       height: 100%;
+   }
+   
+   
+   header .user:hover{
+       transition: 0.1s ease-in;
+       padding: 5px;
+       border-radius: 30px;
+       background-color: rgb(114, 113, 113);
+   }
+   
+   
+   
+   header .user.active{
+       transition: 0.1s ease-in;
+       padding: 5px;
+       border-radius: 30px;
+       background-color: rgb(114, 113, 113);
+   }
+   
+   
+   header .user .dropDown{
+   display: none;
+       
+   } 
+   
+   header .user.active .dropDown{
+       display: flex;
+       box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+       background-color: white;
+       padding: 20px;
+       font-size: 1rem;
+       flex-direction: center;
+       flex-direction: column;
+       align-items: center;
+       margin-top: 10px;
+       width: 230px;
+       height: fit-content;
+       position: absolute;
+       flex-wrap: nowrap;
+       right: 0;
+       text-align: center;
+   }
+   
+   
+   header .user .dropDown h2{
+           margin:5px;
+           font-weight: bold;
+           font-size: 1.3rem;
+           color: var(--MainColour);
+       } 
+       
+   
+   
+   header .user .dropDown p{
+       font-size:1rem;
+       padding: 5px;
+       font-weight: bold;
+   }
+   
+   header .user .dropDown img{
+       height: 60px;
+   }
+   
+   
+   
+   header nav .userInfo{
+       max-width: 250px;
+   }
+   
+   
+   
+   
+   /* Burger Menu Transition and Activation----------------------------------------- */
+   
+   @media only screen and (max-width: 768px){
+   
+       
+           /*Burger Menu---------------------*/
+   
+           .burgerMenu{
+               display: block;
+           }
+   
+   
+           /* Animation---------------------------------- */
+            .burgerMenu.active .bar:nth-child(2){
+               opacity: 0;
+           }
+   
+           .burgerMenu.active .bar:nth-child(1){
+               transform: translateY(8px) rotate(45deg);
+           }
+   
+           .burgerMenu.active .bar:nth-child(3){
+               transform: translateY(-8px) rotate(-45deg);
+           } 
+   
+   
+           /* Menu Style--------------------------------------------- */
+   
+           nav ul{
+               position: fixed;
+               left: -100%;
+               top: 70px;
+               gap: 0;
+               justify-content: flex-start;
+               flex-direction: column;
+               background-color: white;
+               width: 100%;
+               text-align: left;
+               transition:  0.3s;
+           }
+   
+           nav ul li{
+               margin: 20px 0;
+           }
+   
+   
+           nav ul.active{
+               left: 0;
+           }
+   
+   }
+   

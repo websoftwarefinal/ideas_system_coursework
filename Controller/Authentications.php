@@ -1,5 +1,4 @@
 <?php
-require_once __DIR__ . './../Helpers/Database.php';
 require_once __DIR__ . './../Helpers/SessionManager.php';
 require_once __DIR__ . './../Models/User.php';
 
@@ -21,7 +20,7 @@ class Authentications{
             $session->set('last_name', $auth['last_name']);
             $session->set('phone_number', $auth['phone_number']);
 
-            header("Location: /home");
+            header("Location: /admin-controls");
         }else{
             $session->set('error', 'Email or password is incorrect!');
             header("Location: /");

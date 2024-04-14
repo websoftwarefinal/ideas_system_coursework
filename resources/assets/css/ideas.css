@@ -1,9 +1,11 @@
 
-
+:root{
+    font-size: 13px;
+}
 
 
 body{
-    background-image: url(/storage/images/main_image.jpg);
+    background-image: url(../Images/main_image.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -76,6 +78,12 @@ header nav .logo img{
     width: 100%;
     padding: 20px;
 }
+
+main .heading h2{
+    font-size: 2.5rem;
+    /* border-bottom: 2px solid var(--MainColour); */
+}
+
 
 .main .heading .addIdea{
     align-self: flex-start;
@@ -171,7 +179,7 @@ header nav .logo img{
 
 .main .idea .content{
     font-size: 1.5rem;
-    margin: 20px 0 20px 0;
+    margin: 10px 0;
     max-height: 50px;
     font-weight: bold;
     overflow: hidden;
@@ -198,15 +206,16 @@ hr{
 
 
 
-.iconContainer{
+.statsContainer{
     height: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 300px;
+    width: fit-content;
+    min-width: 200px;
 }
 
-.iconContainer .icon{
+.statsContainer .stats{
     height: 30px;
     display: flex;
     justify-content: center;
@@ -214,11 +223,11 @@ hr{
     gap: 5px;
 }
 
-.iconContainer .icon img{
+.statsContainer .stats img{
     height: 60%;
 }
 
-.iconContainer .icon:nth-last-child(1){
+.statsContainer .stats:nth-last-child(1){
     height: 55%;
 }
 

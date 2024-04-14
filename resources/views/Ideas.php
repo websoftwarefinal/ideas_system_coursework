@@ -55,7 +55,7 @@
 
     <div class="heading">
             <h2>Ideas</h2>
-            <a href="CreateAccount.php" class="addIdea">Add Idea</a>
+            <a href="AddIdea.php" class="addIdea">Add Idea</a>
     </div>
 
     <div class="ideas">
@@ -72,7 +72,7 @@
 
     
    
-    <a href=""class="idea">
+    <a href="IdeaPage.php"class="idea">
         <div class="box">
             <h3>By User</h3>
             <p>Date: 12/12/12 12:12</p>
@@ -82,25 +82,15 @@
 
 
         <div class="box2">
-            <div class="iconContainer">
-                <div class="icon">
-                    <img src="Images/like.png" alt="">
+            <div class="statsContainer">
+                <div class="stats">
+                    <p>Popularity: </p>
                     <p>123</p>
                 </div>
 
-                <div class="icon">
-                    <img src="Images/dislike.png" alt="">
-                    <p>12</p>
-                </div>
-
-                <div class="icon">
-                    <img src="Images/message.png" alt="">
-                    <p>13</p>
-                </div>
-
-                <div class="icon">
-                    <img src="Images/views.png" alt="">
-                    <p>124 views</p>
+                <div class="stats">
+                    <p>Views:</p> 
+                    <p>124</p>
                 </div>
             </div>
 
@@ -110,6 +100,7 @@
 
         <hr>
 
+        <!-- <div class="comment">
             <div class="box2">
                 <h3>Latest Comment</h3>
                 <p>Date: 12/12/12 12:12</p>
@@ -117,8 +108,8 @@
 
             <h3>From User</h3>
             <p>What the hell is this!?</p>
-
-   
+            
+        </div>  -->
     </a>
     
 
@@ -135,7 +126,8 @@
 
 
 
+
 <!-- Scripts -->
-<script src="JS/dropDown.js"></script>
+<script src="/resources/assets/js/dropDown.js"></script>
 </body>
 </html>

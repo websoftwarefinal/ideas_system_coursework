@@ -97,10 +97,11 @@ YOU CAN CHOOSE TO USE OTHER METHOD IF YOU WANT -->
     <label for="department">Department:*</label>
     <select name="department" id="department" required> 
         <option value="" disabled selected hidden>Select Department</option>
-        <option value="admin">Administrator</option>
-        <option value="qaCoordinator">QA Coordinator</option>
-        <option value="qaMananger">QA Manager</option>
-        <option value="staff">General</option>
+        <option value="computerScience">Computer Science</option>
+        <option value="engineering">Engineering</option>
+        <option value="medicine">Medicine</option>
+        <option value="law">Law</option>
+        <option value="none">None</option>
     </select>
     </div>
 

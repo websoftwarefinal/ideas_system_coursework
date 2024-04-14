@@ -22,7 +22,7 @@ header nav img {
 /*MAIN--------------------------------*/
 
 .main {
-    background-image: url(/storage/images/main_image.jpg);
+    background-image: url(../Images/main_image.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     height: calc(100vh - 60px);

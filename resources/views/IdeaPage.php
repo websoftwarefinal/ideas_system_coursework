@@ -78,6 +78,8 @@
 </form>
 
 
+<!-- Add Comment--------------------------- -->
+
 <form id="comment" action="">
     <h2>Add Comment</h2>
 
@@ -92,6 +94,10 @@
     </div>
 </form>
 
+
+
+<!-- Comments List--------------------------- -->
+
 <div class="commentsList" action="">
     <div class="inputWrapper">
             <h2>Comments</h2>
@@ -100,7 +106,7 @@
 
     <div class="container">
         <p>List By:</p>
-        <select name="istBy" class="listBy" form="commentsList">
+        <select name="listBy" class="listBy" form="commentsList">
         <option value="" disabled selected hidden>None</option>
         <option value="latest">Latest</option>
         <option value="oldest">Oldest</option>

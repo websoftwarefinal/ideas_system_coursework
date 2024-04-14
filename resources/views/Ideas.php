@@ -21,15 +21,15 @@
 <header>
 <nav>
     <div class=logo>
-        <img src="Images/logo.png" alt="">
+        <img src="/storage/images/logo.png" alt="">
         <p>Ideas</p>
     </div>
 
     <div class="user">
-            <img src="Images/User_Badge.png" alt="">
+            <img src="/storage/images/User_Badge.png" alt="">
 
             <div class="dropDown">
-                <img src="Images/User_Badge.png" alt="">
+                <img src="/storage/images/User_Badge.png" alt="">
                 <div class="userInfo">
                     <h2>Welcome User</h2>
                     <p class="email"> someone@gmail.com</p>

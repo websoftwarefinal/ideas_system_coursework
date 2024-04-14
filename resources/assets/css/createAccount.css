@@ -15,7 +15,7 @@ body{
     justify-content: center;
     align-items: center;
     height: calc(100vh - 30px);
-    background-image: url(../Images/main_image.jpg);
+    background-image: url(/storage/images/main_image.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

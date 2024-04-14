@@ -15,7 +15,7 @@
 <header>
 <nav>
     <div class=logo>
-        <img src="Images/logo.png" alt="">
+        <img src="/storage/images/logo.png" alt="">
         <a href="Ideas.php">Ideas</a>
     </div>
 
@@ -23,9 +23,9 @@
 
    
     <div class="user">
-            <img src="Images/User_Badge.png" alt="">
+            <img src="/storage/images/User_Badge.png" alt="">
             <div class="dropDown">
-                <img src="Images/User_Badge.png" alt="">
+                <img src="/storage/images/User_Badge.png" alt="">
                 <div class="userInfo">
                     <p class="email"> someone@gmail.com</p>
                     <p class="lastLogin">Last Login: 12/12/12</p>

@@ -27,9 +27,9 @@
 
    
     <div class="user">
-            <img src="../../storage/images/User_Badge.png" alt="">
+            <img src="/storage/images/User_Badge.png" alt="">
             <div class="dropDown">
-                <img src="Images/User_Badge.png" alt="">
+                <img src="/storage/images/User_Badge.png" alt="">
                 <div class="userInfo">
                     <p class="email"> someone@gmail.com</p>
                     <p class="lastLogin">Last Login: 12/12/12</p>

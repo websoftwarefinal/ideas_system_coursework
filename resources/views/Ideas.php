@@ -72,7 +72,7 @@
 
     
    
-    <a href="IdeaPage.php"class="idea">
+    <a href="IdeaPage.php" class="idea">
         <div class="box">
             <h3>By User</h3>
             <p>Date: 12/12/12 12:12</p>

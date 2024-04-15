@@ -31,7 +31,7 @@
                     <a href="" class="logoutButton">LOG OUT</a>
                 </div>
             </div>
-
+    </div>
  
 </nav>
 </header>
@@ -42,7 +42,7 @@
 
 <div class="wrapper flexbox">
 
-<!-- IDEA Details----------------- -->
+<!-- IDEA Details-->
 
 <form id="idea" action="">
     <div class="headingContainer">
@@ -78,12 +78,12 @@
 </form>
 
 
-<!-- Add Comment--------------------------- -->
+<!-- Add Comment -->
 
 <form id="comment" action="">
     <h2>Add Comment</h2>
 
-    <input maxlength="100" type="text" name="comment" id="comment" placeholder="Write your comment here" required>
+    <input maxlength="100" type="text" name="comment" id="commentText" placeholder="Write your comment here" required>
 
     <div class="inputWrapper">
         <button class="submitComment">Submit</button>
@@ -96,9 +96,9 @@
 
 
 
-<!-- Comments List--------------------------- -->
+<!-- Comments List -->
 
-<div class="commentsList" action="">
+<div class="commentsList">
     <div class="inputWrapper">
             <h2>Comments</h2>
             <p>125 comments</p>
@@ -106,7 +106,7 @@
 
     <div class="container">
         <p>List By:</p>
-        <select name="listBy" class="listBy" form="commentsList">
+        <select name="listBy" class="listBy">
         <option value="" disabled selected hidden>None</option>
         <option value="latest">Latest</option>
         <option value="oldest">Oldest</option>
@@ -115,39 +115,41 @@
 
 
     <div class="commentBox">
-    <div class="headingContainer">
-                <h2>by User</h2>
-                <h2>Date:12/12/12</h2>
-                <!-- <a class="backButton" href="Ideas.php">Back</a> -->
-    </div>
+        <div class="headingContainer">
+                    <h2>by User</h2>
+                    <h2>Date:12/12/12</h2>
+                    <!-- <a class="backButton" href="Ideas.php">Back</a> -->
+        </div>
 
-    <p class="commentDetails">what the hell is this?</p>
-  
+        <p class="commentDetails">what the hell is this?</p>
+    
 
 
-            <div class="box2">
-                <div class="iconContainer">
-                    <div>
-                        <button class="likeComment"> 
-                        Like</button>
-                        <p>123</p>
-                    </div>
+                <div class="box2">
+                    <div class="iconContainer">
+                        <div>
+                            <button class="likeComment"> 
+                            Like</button>
+                            <p>123</p>
+                        </div>
 
-                    <div>
-                        <button class="dislikeComment"> 
-                        Dislike</button>
-                        <p>12</p>
-                    </div>
+                        <div>
+                            <button class="dislikeComment"> 
+                            Dislike</button>
+                            <p>12</p>
+                        </div>
 
-                <button class="reportComment">
-                    Report
-                </button>
-                </div> 
+                    <button class="reportComment">
+                        Report
+                    </button>
+                    </div> 
+                    
+                </div>       
                 
-             </div>       
-             
-    <hr>
+        <hr>
 
+
+</div>
 
 </div>
 

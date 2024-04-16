@@ -175,6 +175,7 @@ header nav .logo img{
     justify-content: center;
     align-items: center;
     gap: 5px;
+    margin-right: 20px;
 }
 
 #idea .iconContainer div p{

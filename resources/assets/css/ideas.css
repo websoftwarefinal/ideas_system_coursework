@@ -1,8 +1,4 @@
 
-:root{
-    font-size: 13px;
-}
-
 
 body{
     background-image: url(/storage/images/main_image.jpg);
@@ -221,6 +217,7 @@ hr{
     justify-content: center;
     align-items: center;
     gap: 5px;
+    margin-right:20px;
 }
 
 .statsContainer .stats img{

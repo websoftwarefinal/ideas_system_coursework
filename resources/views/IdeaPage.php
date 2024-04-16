@@ -127,7 +127,7 @@
 
                 <div class="box2">
                     <div class="iconContainer">
-                        <div>
+                        <!-- <div>
                             <button class="likeComment"> 
                             Like</button>
                             <p>123</p>
@@ -137,7 +137,7 @@
                             <button class="dislikeComment"> 
                             Dislike</button>
                             <p>12</p>
-                        </div>
+                        </div> -->
 
                     <button class="reportComment">
                         Report

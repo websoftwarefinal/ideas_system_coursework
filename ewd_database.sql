@@ -50,7 +50,7 @@ CREATE TABLE Idea (
     idea_id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     description TEXT NOT NULL,
-    date DATE NOT NULL,
+    date DATETIME NOT NULL,
     anonymous BOOLEAN,
     staff_id INT,
     supporting_document TEXT,

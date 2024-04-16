@@ -14,20 +14,25 @@ class IdeasController{
         $totalRecords = count($idea->get('Idea'));
         $this->total_pages = ceil($totalRecords / 5);
 
-        return $idea->paginate('Idea', $page, 5, $filter);
+        return $idea->paginatedIdeas($page, 5, $filter);
     }
 
     public function show($id){
         $idea = new Idea();
 
-        return $idea->find('Idea', $id, 'idea_id');
+        return $idea->singleIdea($id);
     }
 
-    public function store($columns, $data){
+    public function store($columns, $data, $category_id){
         $idea = new Idea();
 
         try{
             $idea->store("Idea", $columns, $data);
+
+            $stored_idea = $idea->lastInsertData('Idea', 'idea_id');
+
+            // Storing the category
+            $idea->store("Idea_Categories", ["idea_id", "category_id"], [$stored_idea['idea_id'], $category_id]);
 
             header("Location: /ideas"); 
         }catch(Exception $e){
@@ -64,5 +69,5 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $session->get('staff_id')
     ];
 
-    $idea->store($columns, $data);
+    $idea->store($columns, $data, $_POST['category_id']);
 }

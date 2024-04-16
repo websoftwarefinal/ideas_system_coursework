@@ -13,7 +13,6 @@ class Model extends Database {
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute($data);
             return $stmt;
-            // return $this->pdo->executeQuery($sql, $data);
         } catch (PDOException $e) {
             echo "Query failed: " . $e->getMessage();
         }
@@ -83,10 +82,10 @@ class Model extends Database {
             echo "Query failed: " . $e->getMessage();
         }
     }
-}
 
-// Example usage:
-// $modal->createRecord("your_table", ["column1", "column2"], [$data['value1'], $data['value2']]);
-// $modal->updateRecord("your_table", $id, ["column1", "column2"], [$data['value1'], $data['value2']]);
-// $modal->deleteRecord("your_table", $id);
-// $modal->getRecord("your_table", $id);
+    public function lastInsertData($table, $primary_key){
+        // Getting the data that's just been submitted
+        $query = $this->pdo->query("SELECT * FROM $table ORDER BY $primary_key DESC LIMIT 1");
+        return $query->fetch(PDO::FETCH_ASSOC);
+    }
+}

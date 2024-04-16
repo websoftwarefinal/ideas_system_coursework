@@ -6,11 +6,11 @@ class Department extends Model{
 
 
     public function createDepartment(){
-        $users = $this->get('Department');
+        $departments = $this->get('Department');
 
         $roles = $this->get('Roles');
 
-        if(count($users) == 0 && count($roles) > 0){
+        if(count($departments) == 0 && count($roles) > 0){
             $role_id = $roles[0]['role_id'];
 
             $columns = [
@@ -18,10 +18,15 @@ class Department extends Model{
             ]; // Assuming these are your columns
         
             $data = [
-                "IT Department",
+                ["Department of information Technology"],
+                ["Department of computer engineering"],
+                ["Department of computer science "],
+                ["Department of business and management sciences"]
             ];
 
-            $this->store("Department", $columns, $data);
+            foreach($data as $dt){
+                $this->store("Department", $columns, $dt);
+            }
         }
     }
 }

@@ -6,18 +6,23 @@ class Role extends Model{
 
 
     public function createRole(){
-        $users = $this->get('Roles');
+        $roles = $this->get('Roles');
 
-        if(count($users) == 0){
+        if(count($roles) == 0){
             $columns = [
                 "role_name"
             ]; // Assuming these are your columns
         
             $data = [
-                "QA Cordinator"
+                ["Admin"],
+                ["QA Manager"],
+                ["QA Cordinator"],
+                ["Staff"]
             ];
 
-            $this->store("Roles", $columns, $data);
+            foreach($data as $dt){
+                $this->store("Roles", $columns, $dt);
+            }
         }
     }
 }

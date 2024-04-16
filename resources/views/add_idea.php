@@ -1,9 +1,14 @@
 
 <?php
     require_once __DIR__ . '/../../Helpers/SessionManager.php';
+    require_once __DIR__ . '/../../Models/Model.php';
 
     $session = new SessionManager();
     $session->sessionProtection();
+
+    $model = new Model;
+
+    $categories = $model->get('Categories');
 ?>
 
 <!DOCTYPE html>
@@ -20,26 +25,14 @@
 
   <!--HEADER/NAV-->
 <header>
-<nav>
-    <div class=logo>
-        <img src="/storage/images/logo.png" alt="">
-        <a href="Ideas.php">Ideas</a>
-    </div>
-   
-    <div class="user">
-            <img src="/storage/images/User_Badge.png" alt="">
-            <div class="dropDown">
-                <img src="/storage/images/User_Badge.png" alt="">
-                <div class="userInfo">
-                    <p class="email"> someone@gmail.com</p>
-                    <p class="lastLogin">Last Login: 12/12/12</p>
-                    <a href="" class="logoutButton">LOG OUT</a>
-                </div>
-            </div>
-    </div>
-
- 
-</nav>
+    <nav>
+        <div class=logo>
+            <img src="/storage/images/logo.png" alt="">
+            <a href="Ideas.php">Ideas</a>
+        </div>
+    
+        <?php require_once __DIR__ . '/layouts/account_dropdown.php'; ?>
+    </nav>
 </header>
 
 
@@ -68,12 +61,11 @@
 
     <div class="inputWrapper">
         <label for="category">Category:*</label>
-        <select name="category" id="category" form="addIdea" required> 
+        <select name="category_id" id="category" form="addIdea" required> 
             <option value="" disabled selected hidden>Select Category</option>
-            <option value="">Creative</option>
-            <option value="">Social</option>
-            <option value="">Technological</option>
-            <option value="">Philosophical</option>
+            <?php foreach($categories as $category) { ?>
+                <option value="<?php echo $category['category_id']; ?>"><?php echo $category['category_name']; ?></option>
+            <?php } ?>
         </select>
     </div>
 

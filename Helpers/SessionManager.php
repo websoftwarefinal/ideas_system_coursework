@@ -2,7 +2,9 @@
 class SessionManager{
     public function __construct() {
         // Start the session
-        session_start();
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
     }
 
     public function set($key, $value) {

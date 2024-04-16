@@ -14,6 +14,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 100vh;
     height: fit-content;
     background-image: url(/storage/images/main_image.jpg);
     background-position: center;

@@ -14,11 +14,13 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 100vh;
     height: calc(100vh - 30px);
     background-image: url(/storage/images/main_image.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
 }
 
 .wrapper {

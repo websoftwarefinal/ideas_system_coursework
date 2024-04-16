@@ -100,7 +100,6 @@
     </div>
 </form>
 
-
 <!-- Add Comment -->
 
 <form id="comment" action="/Controller/CommentsController.php" method="POST">

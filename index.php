@@ -8,7 +8,9 @@ $routes = [
     '/home' => 'resources/views/home.php',
     '/admin-controls' => 'resources/views/admin-controls.php',
     '/create-account' => 'resources/views/create-account.php',
-    '/ideas' => 'resources/views/ideas.php'
+    '/ideas' => 'resources/views/ideas.php',
+    '/idea-details' => 'resources/views/idea_details.php',
+    '/add-idea' => 'resources/views/add_idea.php'
 ];
 
 // Get the requested URL path
@@ -17,6 +19,7 @@ $path = parse_url($requestUri, PHP_URL_PATH);
 
 // Check if the requested path exists in the defined routes
 if (isset($routes[$path])) {
+    require_once __DIR__ . '/Helpers/helpers.php';
     // Include the corresponding file
     include $routes[$path];
 } else {

@@ -1,4 +1,25 @@
 
+<?php
+    require_once __DIR__ . '/../../Helpers/SessionManager.php';
+    require_once __DIR__ . '/../../Controller/IdeasController.php';
+    require_once __DIR__ . '/../../Controller/CommentsController.php';
+
+    $session = new SessionManager();
+    $session->sessionProtection();
+
+    $ideas = new IdeasController;
+    $idea = null;
+
+    $idea_id = null;
+    if(isset($_GET['idea_id']) && $_GET['idea_id'] != ''){
+        $idea_id = $_GET['idea_id'];
+        $idea = $ideas->show($_GET['idea_id']);
+    }
+
+    $com = new CommentsController;
+    $comments = $com->index();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +37,7 @@
 <nav>
     <div class=logo>
         <img src="/storage/images/logo.png" alt="">
-        <a href="Ideas.php">Ideas</a>
+        <a href="/ideas">Ideas</a>
     </div>
 
     <div class="user">
@@ -46,43 +67,44 @@
 
 <form id="idea" action="">
     <div class="headingContainer">
-                <h2>by User</h2>
-                <h2>Date:12/12/12</h2>
-                <!-- <a class="backButton" href="Ideas.php">Back</a> -->
+        <h2>By <?php echo $session->get('first_name') . ' ' . $session->get('last_name'); ?></h2>
+        <h2>Date: <?php echo date('Y-m-d H:i:s', strtotime($idea['date'])); ?></h2>
+        <!-- <a class="backButton" href="Ideas.php">Back</a> -->
     </div>
-    <h1>Idea Title</h1>
-    <p>Description of Idea loren ipsum</p>
-    <button class="download">Download Attachment</button>
+
+    <h1><?php echo $idea['title']; ?></h1>
+    <p><?php echo $idea['description']; ?></p>
+
+    <button type="button" class="download">Download Attachment</button>
 
     <div class="box2">
-                <div class="iconContainer">
-                    <div>
-                        <button class="like"> 
-                        Like</button>
-                        <p>123</p>
-                    </div>
+        <div class="iconContainer">
+            <div>
+                <button class="like"> 
+                Like</button>
+                <p>123</p>
+            </div>
 
-                    <div>
-                        <button class="dislike"> 
-                        Dislike</button>
-                        <p>12</p>
-                    </div>
+            <div>
+                <button class="dislike"> 
+                Dislike</button>
+                <p>12</p>
+            </div>
 
-                <button class="report">
-                    Report
-                </button>
-                
-                </div>     
-                
+            <button class="report">
+                Report
+            </button>
+        </div>     
     </div>
 </form>
 
 
 <!-- Add Comment -->
 
-<form id="comment" action="">
+<form id="comment" action="/Controller/CommentsController.php" method="POST">
     <h2>Add Comment</h2>
 
+    <input type="hidden" name="idea_id" value="<?php echo $idea_id; ?>" />
     <input maxlength="100" type="text" name="comment" id="commentText" placeholder="Write your comment here" required>
 
     <div class="inputWrapper">
@@ -94,14 +116,12 @@
     </div>
 </form>
 
-
-
 <!-- Comments List -->
 
 <div class="commentsList">
     <div class="inputWrapper">
             <h2>Comments</h2>
-            <p>125 comments</p>
+            <p><?php echo count($comments); ?> comments</p>
     </div>
 
     <div class="container">
@@ -114,15 +134,23 @@
     </div>
 
 
-    <div class="commentBox">
-        <div class="headingContainer">
-                    <h2>by User</h2>
-                    <h2>Date:12/12/12</h2>
-                    <!-- <a class="backButton" href="Ideas.php">Back</a> -->
-        </div>
+    <?php foreach($comments as $comment) { ?>
+        <div class="commentBox">
+            <div class="headingContainer">
+                <h2>By User</h2>
+                <h2><?php echo timeDifference($comment['date']); ?></h2>
+                <!-- <a class="backButton" href="Ideas.php">Back</a> -->
+            </div>
 
-        <p class="commentDetails">what the hell is this?</p>
-    
+            <p class="commentDetails"><?php echo $comment['text']; ?></p>
+        
+            <div class="box2">
+                <div class="iconContainer">
+                    <div>
+                        <button class="likeComment"> 
+                        Like</button>
+                        <p>123</p>
+                    </div>
 
 
                 <div class="box2">
@@ -142,14 +170,11 @@
                     <button class="reportComment">
                         Report
                     </button>
-                    </div> 
-                    
-                </div>       
-                
-        <hr>
-
-
-</div>
+                </div> 
+            </div>          
+            <hr>
+        </div>
+    <?php } ?>
 
 </div>
 

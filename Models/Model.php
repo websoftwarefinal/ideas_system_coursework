@@ -47,11 +47,10 @@ class Model extends Database {
     }
 
     // Method to get record
-    public function find($table, $id) {
+    public function find($table, $id, $id_name) {
         try {
-            $sql = "SELECT * FROM $table WHERE id = ?";
-            $params = [$id];
-            $stmt = $this->pdo->executeQuery($sql, $params);
+            $stmt = $this->pdo->prepare("SELECT * FROM $table WHERE $id_name = ?");
+            $stmt->execute([$id]);
             return $stmt->fetch(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             echo "Query failed: " . $e->getMessage();

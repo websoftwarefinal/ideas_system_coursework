@@ -16,9 +16,7 @@ CREATE TABLE Categories (
 -- Create Department table
 CREATE TABLE Department (
     department_id INT AUTO_INCREMENT PRIMARY KEY,
-    department_name VARCHAR(50) NOT NULL,
-    qa_coordinator_id INT,
-    FOREIGN KEY (qa_coordinator_id) REFERENCES Roles(role_id)
+    department_name VARCHAR(255) NOT NULL
 );
 
 -- Create Staff table
@@ -51,8 +49,9 @@ CREATE TABLE Idea (
     title VARCHAR(255) NOT NULL,
     description TEXT NOT NULL,
     date DATE NOT NULL,
-    likes INT DEFAULT 0,
+    anonymous BOOLEAN,
     staff_id INT,
+    supporting_document TEXT,
     FOREIGN KEY (staff_id) REFERENCES Staff(staff_id)
 );
 
@@ -71,6 +70,7 @@ CREATE TABLE Comments (
     author_id INT,
     idea_id INT,
     date DATE NOT NULL,
+    anonymous BOOLEAN,
     text TEXT NOT NULL,
     FOREIGN KEY (author_id) REFERENCES Staff(staff_id),
     FOREIGN KEY (idea_id) REFERENCES Idea(idea_id)
@@ -83,4 +83,38 @@ CREATE TABLE Likes (
     PRIMARY KEY (idea_id, author_id),
     FOREIGN KEY (idea_id) REFERENCES Idea(idea_id),
     FOREIGN KEY (author_id) REFERENCES Staff(staff_id)
+);
+CREATE TABLE Dislikes (
+    idea_id INT,
+    author_id INT,
+    PRIMARY KEY (idea_id, author_id),
+    FOREIGN KEY (idea_id) REFERENCES Idea(idea_id),
+    FOREIGN KEY (author_id) REFERENCES Staff(staff_id)
+);
+CREATE TABLE Views (
+    view_id INT AUTO_INCREMENT PRIMARY KEY,
+    idea_id INT,
+    staff_id INT,
+    FOREIGN KEY (idea_id) REFERENCES Idea(idea_id),
+    FOREIGN KEY (staff_id) REFERENCES Staff(staff_id)
+);
+CREATE TABLE report_idea (
+    report_id INT AUTO_INCREMENT PRIMARY KEY,
+    idea_id INT,
+    staff_id INT,
+    FOREIGN KEY (idea_id) REFERENCES Idea(idea_id),
+    FOREIGN KEY (staff_id) REFERENCES Staff(staff_id)
+);
+CREATE TABLE report_comment (
+    report_id INT AUTO_INCREMENT PRIMARY KEY,
+    idea_id INT,
+    staff_id INT,
+    FOREIGN KEY (idea_id) REFERENCES Idea(idea_id),
+    FOREIGN KEY (staff_id) REFERENCES Staff(staff_id)
+);
+CREATE TABLE deadline (
+    deadline_id INT AUTO_INCREMENT PRIMARY KEY,
+    idea_id INT,
+    deadline_date DATETIME,
+    FOREIGN KEY (idea_id) REFERENCES Idea(idea_id)
 );

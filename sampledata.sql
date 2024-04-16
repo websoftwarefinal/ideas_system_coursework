@@ -1,49 +1,121 @@
--- Insert sample data into the Roles table
+create database ewd_database;
 use ewd_database;
-INSERT INTO Roles (role_name) VALUES ('Manager'), ('Employee');
 
--- Insert sample data into the Categories table
-INSERT INTO Categories (category_name) VALUES ('Technology'), ('Human Resources'), ('Marketing');
+-- Create Roles table
+CREATE TABLE Roles (
+    role_id INT AUTO_INCREMENT PRIMARY KEY,
+    role_name VARCHAR(50) NOT NULL
+);
 
--- Insert sample data into the Department table
-INSERT INTO Department (department_name) VALUES ('IT'), ('HR'), ('Marketing');
+-- Create Categories table
+CREATE TABLE Categories (
+    category_id INT AUTO_INCREMENT PRIMARY KEY,
+    category_name VARCHAR(50) NOT NULL
+);
 
--- Insert sample data into the Staff table
-INSERT INTO Staff (first_name, last_name, email_address, phone_number, password, account_status, position, role_id, department_id) 
-VALUES 
-('John', 'Doe', 'john.doe@example.com', '1234567890', 'password123', 'active', 'Manager', 1, 1),
-('Jane', 'Smith', 'jane.smith@example.com', '9876543210', 'password456', 'active', 'Employee', 2, 2),
-('Michael', 'Johnson', 'michael.johnson@example.com', '1231231234', 'password789', 'active', 'Employee', 2, 3);
+-- Create Department table
+CREATE TABLE Department (
+    department_id INT AUTO_INCREMENT PRIMARY KEY,
+    department_name VARCHAR(255) NOT NULL
+);
 
--- Insert sample data into the Idea table
-INSERT INTO Idea (title, description, date, anonymous, staff_id, supporting_document) 
-VALUES 
-('New Website Design', 'Proposing a redesign of the company website.', '2024-04-01', FALSE, 1, 'website_design.pdf'),
-('Employee Training Program', 'Suggesting a new training program for employees.', '2024-04-02', TRUE, 2, 'training_program.pdf'),
-('Social Media Campaign', 'Proposing a new social media campaign for marketing.', '2024-04-03', FALSE, 3, 'social_media_campaign.pdf');
+-- Create Staff table
+CREATE TABLE Staff (
+    staff_id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email_address VARCHAR(255) NOT NULL,
+    phone_number TEXT NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    account_status VARCHAR(20) NOT NULL,
+    position VARCHAR(50) NOT NULL,
+    role_id INT,
+    department_id INT,
+    FOREIGN KEY (role_id) REFERENCES Roles(role_id),
+    FOREIGN KEY (department_id) REFERENCES Department(department_id)
+);
 
--- Insert sample data into the Idea_Categories table
-INSERT INTO Idea_Categories (idea_id, category_id) VALUES (1, 1), (2, 2), (3, 3);
+-- Create Login_staff table
+CREATE TABLE Login_staff (
+    login_id INT AUTO_INCREMENT PRIMARY KEY,
+    staff_id INT,
+    date_time DATETIME NOT NULL,
+    FOREIGN KEY (staff_id) REFERENCES Staff(staff_id)
+);
 
--- Insert sample data into the Comments table
-INSERT INTO Comments (author_id, idea_id, date, anonymous, text) 
-VALUES 
-(2, 1, '2024-04-02', FALSE, 'Great idea! I think it will improve user engagement.'),
-(3, 1, '2024-04-03', TRUE, 'I agree with the proposal.'),
-(1, 2, '2024-04-03', FALSE, 'This training program will be beneficial for new employees.'),
-(3, 3, '2024-04-04', FALSE, 'I have some suggestions for the social media campaign.');
+-- Create Idea table
+CREATE TABLE Idea (
+    idea_id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    date DATE NOT NULL,
+    anonymous BOOLEAN,
+    staff_id INT,
+    supporting_document TEXT,
+    FOREIGN KEY (staff_id) REFERENCES Staff(staff_id)
+);
 
--- Insert sample data into the Likes table
-INSERT INTO Likes (idea_id, author_id) VALUES (1, 2), (2, 1), (3, 3);
+-- Create Idea_Categories (join table)
+CREATE TABLE Idea_Categories (
+    idea_id INT,
+    category_id INT,
+    PRIMARY KEY (idea_id, category_id),
+    FOREIGN KEY (idea_id) REFERENCES Idea(idea_id),
+    FOREIGN KEY (category_id) REFERENCES Categories(category_id)
+);
 
--- Insert sample data into the Views table
-INSERT INTO Views (idea_id, staff_id) VALUES (1, 2), (2, 1), (3, 3);
+-- Create Comments table
+CREATE TABLE Comments (
+    comment_id INT AUTO_INCREMENT PRIMARY KEY,
+    author_id INT,
+    idea_id INT,
+    date DATE NOT NULL,
+    anonymous BOOLEAN,
+    text TEXT NOT NULL,
+    FOREIGN KEY (author_id) REFERENCES Staff(staff_id),
+    FOREIGN KEY (idea_id) REFERENCES Idea(idea_id)
+);
 
--- Insert sample data into the report_idea table
-INSERT INTO report_idea (idea_id, staff_id) VALUES (1, 2), (2, 1), (3, 3);
-
--- Insert sample data into the report_comment table
-INSERT INTO report_comment (idea_id, staff_id) VALUES (1, 2), (2, 1), (3, 3);
-
--- Insert sample data into the deadline table
-INSERT INTO deadline (idea_id, deadline_date) VALUES (1, '2024-05-01'), (2, '2024-06-01'), (3, '2024-07-01');
+-- Create Likes table
+CREATE TABLE Likes (
+    idea_id INT,
+    author_id INT,
+    PRIMARY KEY (idea_id, author_id),
+    FOREIGN KEY (idea_id) REFERENCES Idea(idea_id),
+    FOREIGN KEY (author_id) REFERENCES Staff(staff_id)
+);
+CREATE TABLE Dislikes (
+    idea_id INT,
+    author_id INT,
+    PRIMARY KEY (idea_id, author_id),
+    FOREIGN KEY (idea_id) REFERENCES Idea(idea_id),
+    FOREIGN KEY (author_id) REFERENCES Staff(staff_id)
+);
+CREATE TABLE Views (
+    view_id INT AUTO_INCREMENT PRIMARY KEY,
+    idea_id INT,
+    staff_id INT,
+    FOREIGN KEY (idea_id) REFERENCES Idea(idea_id),
+    FOREIGN KEY (staff_id) REFERENCES Staff(staff_id)
+);
+CREATE TABLE report_idea (
+    report_id INT AUTO_INCREMENT PRIMARY KEY,
+    idea_id INT,
+    staff_id INT,
+    FOREIGN KEY (idea_id) REFERENCES Idea(idea_id),
+    FOREIGN KEY (staff_id) REFERENCES Staff(staff_id)
+);
+CREATE TABLE report_comment (
+    report_id INT AUTO_INCREMENT PRIMARY KEY,
+    idea_id INT,
+    staff_id INT,
+    FOREIGN KEY (idea_id) REFERENCES Idea(idea_id),
+    FOREIGN KEY (staff_id) REFERENCES Staff(staff_id)
+);
+CREATE TABLE deadline (
+    deadline_id INT AUTO_INCREMENT PRIMARY KEY,
+    idea_id INT,
+    deadline_date DATETIME,
+    FOREIGN KEY (idea_id) REFERENCES Idea(idea_id)
+);

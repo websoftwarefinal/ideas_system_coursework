@@ -15,14 +15,23 @@ class Authentications{
         if($auth){
             $session->unsetSession('error');
 
-
             $session->set('staff_id', $auth['staff_id']);
             $session->set('username', $auth['email_address']);
             $session->set('first_name', $auth['first_name']);
             $session->set('last_name', $auth['last_name']);
             $session->set('phone_number', $auth['phone_number']);
 
-            header("Location: /admin-controls");
+            $role = $user->find('Roles', $auth['role_id'], 'role_id');
+            $session->set('role', $role['role_name']);
+
+            // Storing the last login for the user
+            $user->store("Login_Staff", ["staff_id", "date_time"], [$auth['staff_id'], date('Y-m-d H:i:s')]);
+
+            if($role['role_name'] == 'Admin'){
+                header("Location: /admin-controls");
+            }else{
+                header("Location: /ideas");
+            }
         }else{
             $session->set('error', 'Email or password is incorrect!');
             header("Location: /");

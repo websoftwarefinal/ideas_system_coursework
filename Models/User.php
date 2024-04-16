@@ -65,4 +65,14 @@ class User extends Model{
             echo "Query failed: " . $e->getMessage();
         }
     }
+
+    public function lastStaffLogin($staff_id){
+        try {
+            $stmt = $this->pdo->prepare("SELECT * FROM Login_Staff WHERE $staff_id = ? ORDER BY date_time DESC LIMIT 1");
+            $stmt->execute([$staff_id]);
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo "Query failed: " . $e->getMessage();
+        }
+    }
 }

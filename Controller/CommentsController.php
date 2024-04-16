@@ -3,10 +3,10 @@ require_once __DIR__ . './../Models/Comment.php';
 require_once __DIR__ . './../Helpers/SessionManager.php';
 
 class CommentsController{
-    public function index(){
+    public function index($idea_id){
         $comment = new Comment();
 
-        return $comment->get('Comments');
+        return $comment->ideaComments($idea_id);
     }
 
     public function store($columns, $data, $idea_id){
@@ -27,7 +27,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         "author_id",
         "idea_id",
         "date",
-        "text"
+        "text",
+        "anonymous"
     ];
 
     $session = new SessionManager;
@@ -36,12 +37,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $idea_id = $_POST['idea_id'];
     $date = date('Y-m-d');
     $text = $_POST['comment'];
+    $anonymous = $_POST['anonymous'];
 
     $data = [
         $staff_id,
         $idea_id,
         $date,
-        $text
+        $text,
+        $anonymous
     ];
 
     $comment = new CommentsController;

@@ -32,20 +32,7 @@
         <p>Ideas</p>
     </div>
 
-    <div class="user">
-            <img src="/storage/images/User_Badge.png" alt="">
-
-            <div class="dropDown">
-                <img src="/storage/images/User_Badge.png" alt="">
-                <div class="userInfo">
-                    <h2>Welcome User</h2>
-                    <p class="email"> someone@gmail.com</p>
-                    <p class="lastLogin">Last Login: 12/12/12</p>
-                    <a href="" class="logoutButton">LOG OUT</a>
-                </div>
-            </div>
-    </div>
- 
+    <?php require_once __DIR__ . '/layouts/account_dropdown.php'; ?>
 </nav>
 </header>
 
@@ -55,9 +42,9 @@
 <div class="wrapper flexbox">
 
     <div class="deadline">
-            <h2>Deadlines</h2>
-            <p>Final: 12/12/12</p>
-            <p>Ideas: 12/12/12</p>
+        <h2>Deadlines</h2>
+        <p>Final: 12/12/12</p>
+        <p>Ideas: 12/12/12</p>
     </div>
 
     <div class="heading">
@@ -81,7 +68,7 @@
    <?php foreach($ideas->index($page, $filter) as $idea) { ?>
         <a href="/idea-details?idea_id=<?php echo $idea['idea_id']; ?>" class="idea">
             <div class="box">
-                <h3>By User</h3>
+                <h3>By: <?php echo $idea['anonymous'] != '1' ? $idea['first_name'] . ' ' . $idea['last_name'] : 'Anonymous'; ?></h3>
                 <p>Date: <?php echo date('Y-m-d H:i:s', strtotime($idea['date'])); ?></p>
             </div>
 
@@ -101,25 +88,20 @@
                     </div>
                 </div>
 
-                <p>Category: Name</p>
+                <p>Category: <?php echo $idea['category_name']; ?></p>
             
             </div>
 
             <hr>
-
-            <!-- <div class="comment">
-                <div class="box2">
-                    <h3>Latest Comment</h3>
-                    <p>Date: 12/12/12 12:12</p>
-                </div>
-
-                <h3>From User</h3>
-                <p>What the hell is this!?</p>
-                
-            </div>  -->
         </a>
     <?php } ?>
     
+    <?php if(count($ideas->index($page, $filter)) == 0) { ?>
+        <div style="background-color: white; padding: 15px; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 5px;">
+            <h1 style="color: gray !important; text-align: center;">No Ideas yet!<br /></h1>
+            <h1 style="color: gray !important; text-align: center; margin-top: 5px;">click "Add Idea" button to add.</h1>
+        </div>
+    <?php } ?>
 
     </div>
 

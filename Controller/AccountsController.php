@@ -39,7 +39,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $email_address = $_POST['email'];
     $phone_number = $_POST['phone_number'];
     $password = $_POST['password'];
-    $position = $_POST['position'];
+    $role_id = $_POST['role_id'];
+    $department_id = $_POST['department_id'];
+
+    $roles = new Account();
+    $role = $roles->find('Roles', $_POST['role_id'], 'role_id');
+    $position = $role['role_name'];
 
     $data = [
         $first_name,
@@ -49,8 +54,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         password_hash($password, PASSWORD_DEFAULT),
         "active",
         $position,
-        2,
-        1
+        $role_id,
+        $department_id
     ];
 
     $account->createAccout($columns, $data);

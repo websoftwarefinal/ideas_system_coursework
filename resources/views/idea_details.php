@@ -17,7 +17,17 @@
     }
 
     $com = new CommentsController;
-    $comments = $com->index();
+    $comments = $com->index($idea_id);
+
+    // Getting the hostname for the application
+    $hostname = $_SERVER['HTTP_HOST'];
+    $port = $_SERVER['SERVER_PORT'];
+
+    $host_name_with_port = $hostname;
+
+    if($hostname == 'localhost'){
+        $host_name_with_port = $hostname . ':' . $port;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -34,27 +44,13 @@
 
   <!--HEADER/NAV-->
 <header>
-<nav>
-    <div class=logo>
-        <img src="/storage/images/logo.png" alt="">
-        <a href="/ideas">Ideas</a>
-    </div>
-
-    <div class="user">
-            <img src="/storage/images/User_Badge.png" alt="">
-
-            <div class="dropDown">
-                <img src="/storage/images/User_Badge.png" alt="">
-                <div class="userInfo">
-                    <h2>Welcome User</h2>
-                    <p class="email"> someone@gmail.com</p>
-                    <p class="lastLogin">Last Login: 12/12/12</p>
-                    <a href="" class="logoutButton">LOG OUT</a>
-                </div>
-            </div>
-    </div>
- 
-</nav>
+    <nav>
+        <div class=logo>
+            <img src="/storage/images/logo.png" alt="">
+            <a href="/ideas">Ideas</a>
+        </div>
+        <?php require_once __DIR__ . '/layouts/account_dropdown.php'; ?>
+    </nav>
 </header>
 
 
@@ -75,7 +71,13 @@
     <h1><?php echo $idea['title']; ?></h1>
     <p><?php echo $idea['description']; ?></p>
 
-    <button type="button" class="download">Download Attachment</button>
+    <?php if($idea['supporting_document'] != '') { ?>
+        <a href="http://<?php echo $host_name_with_port . $idea['supporting_document']; ?>" download>
+            <button type="button" class="download">
+                Download Attachment
+            </button>
+        </a>
+    <?php } ?>
 
     <div class="box2">
         <div class="iconContainer">
@@ -110,7 +112,7 @@
     <div class="inputWrapper">
         <button class="submitComment">Submit</button>
         <div class="checkboxWrapper">
-            <input type="checkbox" name="anonymous" id="anonymous" value="anonymous">
+            <input type="checkbox" name="anonymous" id="anonymous" value="1">
             <label for="anonymous">Post anonymously</label>
         </div>
     </div>
@@ -170,13 +172,12 @@
                     <button class="reportComment">
                         Report
                     </button>
-                </div> 
-            </div>          
-            <hr>
-        </div>
-    <?php } ?>
-
-</div>
+                    </div> 
+                </div>          
+            </div>
+    
+        </div><hr style="margin-top: 10px;">
+        <?php } ?>
 
 </div>
    

@@ -3,6 +3,20 @@
 
     $session = new SessionManager();
     $session->sessionProtection();
+
+    $role = $session->get('role');
+
+    if($role != 'Admin'){
+        if($role == 'Staff'){
+            header("Location: /ideas");
+        }else if($role == 'QA Manager'){
+            header("Location: /qa-manager-controls");
+        }else if($role == 'QA Cordinator'){
+            header("Location: /qa-cordinator-controls");
+        }
+
+        header("Location: /ideas");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -22,25 +36,7 @@
 <nav>
     <p class="heading">Administrator Controls</p>
 
-    <div class="user">
-            <img src="/storage/images/user_badge.png" alt="">
-
-            <div class="dropDown">
-                <img src="/storage/images/user_badge.png" alt="">
-                <div class="userInfo">
-                    <h2>Welcome Administrator</h2>
-                    <p class="email"> someone@gmail.com</p>
-                    <p class="lastLogin">Last Login: 12/12/12</p>
-
-                    <form action="/Controller/Authentications.php" method="post" style="width:100%;">
-                        <input type="hidden" name="logout" id="logout">
-                        <button type="submit"  class="logoutButton" style="width: 100%;">Logout</button>
-                    </form>
-                    <!-- <a href="" class="logoutButton">LOG OUT</a> -->
-                </div>
-            </div>
-    </div>
- 
+    <?php require_once __DIR__ . '/layouts/account_dropdown.php'; ?>
 </nav>
 </header>
 
@@ -185,10 +181,6 @@
 </div>
 </main>
 
-
-
-<!-- Scripts -->
-<script src="/resources/assets/js/dropDown.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 

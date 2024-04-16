@@ -1,8 +1,23 @@
 <?php
     require_once __DIR__ . '/../../Helpers/SessionManager.php';
+    require_once __DIR__ . '/../../Models/Model.php';
 
     $session = new SessionManager();
     $session->sessionProtection();
+
+    if($role != 'Admin'){
+        if($role == 'Staff'){
+            header("Location: /ideas");
+        }else if($role == 'QA Manager'){
+            header("Location: /qa-manager-controls");
+        }else if($role == 'QA Cordinator'){
+            header("Location: /qa-cordinator-controls");
+        }
+
+        header("Location: /ideas");
+    }
+
+    $model = new Model;
 ?>
 
 <!DOCTYPE html>
@@ -21,25 +36,10 @@
 
   <!--HEADER/NAV-->
 <header>
-<nav>
-    <p class="heading">Administrator Controls</p>
-
-
-   
-    <div class="user">
-            <img src="/storage/images/User_Badge.png" alt="">
-            <div class="dropDown">
-                <img src="/storage/images/User_Badge.png" alt="">
-                <div class="userInfo">
-                    <p class="email"> someone@gmail.com</p>
-                    <p class="lastLogin">Last Login: 12/12/12</p>
-                    <a href="" class="logoutButton">LOG OUT</a>
-                </div>
-            </div>
-    </div>
-
- 
-</nav>
+    <nav>
+        <p class="heading">Administrator Controls</p>
+        <?php require_once __DIR__ . '/layouts/account_dropdown.php'; ?>
+    </nav>
 </header>
 
 
@@ -53,12 +53,12 @@
 <!-- NOTE TO DEVS: USING REQUIRED IS NOT BEST PRACTISE BUT IVE PUT FOR YOU TO SPEED UP THE PROCESS. 
 YOU CAN CHOOSE TO USE OTHER METHOD IF YOU WANT -->
 
-<form class="createAccount" action="/Controller/AccountsController.php" method="POST">
+<form id="createAccount" action="/Controller/AccountsController.php" method="POST">
 
-<div class="accountContainer">
-            <h1>Create Account</h1>
-            <a class="backButton" href="adminControls.php">Back</a>
-</div>
+    <div class="accountContainer">
+        <h1>Create Account</h1>
+        <a class="backButton" href="/admin-controls">Back</a>
+    </div>
     
     <div class="inputWrapper">
     <label for="lastName">Last Name:*</label>
@@ -82,26 +82,23 @@ YOU CAN CHOOSE TO USE OTHER METHOD IF YOU WANT -->
     </div>
 
     <div class="inputWrapper">
-    <label for="position">Position:*</label>
-    <select name="position" id="position" required> 
+    <label for="role">Role:*</label>
+    <select name="role_id" id="role" required> 
         <option value="" disabled selected hidden>Select Position</option>
-        <option value="admin">Administrator</option>
-        <option value="qaCoordinator">QA Coordinator</option>
-        <option value="qaMananger">QA Manager</option>
-        <option value="staff">General</option>
+        <?php foreach($model->get('Roles') as $role) { ?>
+            <option value="<?php echo $role['role_id']; ?>"><?php echo $role['role_name']; ?></option>
+        <?php } ?>
     </select>
     </div>
 
     <!-- i havent set any departments since we havent yet chosen what those will be -->
     <div class="inputWrapper">
     <label for="department">Department:*</label>
-    <select name="department" id="department" required> 
+    <select name="department_id" id="department" required> 
         <option value="" disabled selected hidden>Select Department</option>
-        <option value="computerScience">Computer Science</option>
-        <option value="engineering">Engineering</option>
-        <option value="medicine">Medicine</option>
-        <option value="law">Law</option>
-        <option value="none">None</option>
+        <?php foreach($model->get('Department') as $department) { ?>
+            <option value="<?php echo $department['department_id']; ?>"><?php echo $department['department_name']; ?></option>
+        <?php } ?>
     </select>
     </div>
 

@@ -9,7 +9,7 @@ INSERT INTO Categories (category_name) VALUES ('Technology'), ('Human Resources'
 INSERT INTO Department (department_name) VALUES ('IT'), ('HR'), ('Marketing');
 
 -- Insert sample data into the Staff table
-INSERT INTO Staff (username, first_name, last_name, email_address, phone_number, password, account_status, position, role_id, department_id) 
+INSERT INTO Staff (username, first_name, last_name, email_address, phone_number, password, account_status,posts_banned, position, role_id, department_id) 
 VALUES 
 ('JD','John', 'Doe', 'john.doe@example.com', '1234567890', 'password123', 'active','allowed', 'Manager', 1, 1),
 ('JS','Jane', 'Smith', 'jane.smith@example.com', '9876543210', 'password456', 'active','allowed', 'Employee', 2, 2),

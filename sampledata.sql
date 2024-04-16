@@ -18,9 +18,9 @@ VALUES
 -- Insert sample data into the Idea table
 INSERT INTO Idea (title, description, date, anonymous, staff_id, supporting_document) 
 VALUES 
-('New Website Design', 'Proposing a redesign of the company website.', '2024-04-01', FALSE, 1, 'website_design.pdf'),
-('Employee Training Program', 'Suggesting a new training program for employees.', '2024-04-02', TRUE, 2, 'training_program.pdf'),
-('Social Media Campaign', 'Proposing a new social media campaign for marketing.', '2024-04-03', FALSE, 3, 'social_media_campaign.pdf');
+('New Website Design', 'Proposing a redesign of the company website.', '2024-04-15 08:30:00', FALSE, 1, 'website_design.pdf'),
+('Employee Training Program', 'Suggesting a new training program for employees.', '2024-04-15 15:30:00', TRUE, 2, 'training_program.pdf'),
+('Social Media Campaign', 'Proposing a new social media campaign for marketing.', '2024-04-15 10:30:00', FALSE, 3, 'social_media_campaign.pdf');
 
 -- Insert sample data into the Idea_Categories table
 INSERT INTO Idea_Categories (idea_id, category_id) VALUES (1, 1), (2, 2), (3, 3);

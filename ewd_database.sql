@@ -22,12 +22,14 @@ CREATE TABLE Department (
 -- Create Staff table
 CREATE TABLE Staff (
     staff_id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     email_address VARCHAR(255) NOT NULL,
     phone_number TEXT NOT NULL,
     password VARCHAR(255) NOT NULL,
     account_status VARCHAR(20) NOT NULL,
+    posts_banned VARCHAR(20) NOT NULL,
     position VARCHAR(50) NOT NULL,
     role_id INT,
     department_id INT,
@@ -48,7 +50,7 @@ CREATE TABLE Idea (
     idea_id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     description TEXT NOT NULL,
-    date DATE NOT NULL,
+    date DATETIME NOT NULL,
     anonymous BOOLEAN,
     staff_id INT,
     supporting_document TEXT,

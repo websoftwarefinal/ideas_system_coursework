@@ -5,6 +5,8 @@
     $session = new SessionManager();
     $session->sessionProtection();
 
+    $role = $session->get('role');
+
     if($role != 'Admin'){
         if($role == 'Staff'){
             header("Location: /ideas");

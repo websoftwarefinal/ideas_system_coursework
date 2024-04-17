@@ -63,7 +63,7 @@
 
 <form id="idea" action="">
     <div class="headingContainer">
-        <h2>By <?php echo $session->get('first_name') . ' ' . $session->get('last_name'); ?></h2>
+        <h2>By <?php echo $idea['anonymous'] != '1' ? $idea['first_name'] . ' ' . $idea['last_name'] : 'Anonymous'; ?></h2>
         <h2>Date: <?php echo date('Y-m-d H:i:s', strtotime($idea['date'])); ?></h2>
         <!-- <a class="backButton" href="Ideas.php">Back</a> -->
     </div>

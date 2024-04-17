@@ -56,7 +56,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $title = $_POST['title'];
     $description = $_POST['description'];
     $date = date('Y-m-d H:i:s');
-    $supporting_document = isset($_FILES["supporting_document"]) && $_FILES["supporting_document"]["error"] == UPLOAD_ERR_OK ? FileStorageHelper::saveFile("supporting_document") : 'none';
+    $supporting_document = isset($_FILES["supporting_document"]) && $_FILES["supporting_document"]["error"] == UPLOAD_ERR_OK ? FileStorageHelper::saveFile("supporting_document") : null;
     $anonymous = isset($_POST['anonymous']) && $_POST['anonymous'] == 1 ? true : false;
 
     $session = new SessionManager;

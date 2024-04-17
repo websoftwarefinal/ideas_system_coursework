@@ -1,8 +1,8 @@
 
 <?php
-    require_once __DIR__ . '/../../Helpers/SessionManager.php';
-    require_once __DIR__ . '/../../Controller/IdeasController.php';
-    require_once __DIR__ . '/../../Controller/CommentsController.php';
+    require_once __DIR__ . './../../Helpers/SessionManager.php';
+    require_once __DIR__ . './../../Controller/IdeasController.php';
+    require_once __DIR__ . './../../Controller/CommentsController.php';
 
     $session = new SessionManager();
     $session->sessionProtection();

@@ -1,16 +1,16 @@
 <?php
 // Define routes and their corresponding actions
 $routes = [
-    '/' => 'resources/views/index.php',
-    '/academics' => 'resources/views/academics.php',
-    '/about-us' => 'resources/views/about-us.php',
-    '/apply' => 'resources/views/apply.php',
-    '/home' => 'resources/views/home.php',
-    '/admin-controls' => 'resources/views/admin-controls.php',
-    '/create-account' => 'resources/views/create-account.php',
-    '/ideas' => 'resources/views/ideas.php',
-    '/idea-details' => 'resources/views/idea_details.php',
-    '/add-idea' => 'resources/views/add_idea.php'
+    '/' => './resources/views/index.php',
+    '/academics' => './resources/views/academics.php',
+    '/about-us' => './resources/views/about-us.php',
+    '/apply' => './resources/views/apply.php',
+    '/home' => './resources/views/home.php',
+    '/admin-controls' => './resources/views/admin-controls.php',
+    '/create-account' => './resources/views/create-account.php',
+    '/ideas' => './resources/views/ideas.php',
+    '/idea-details' => './resources/views/idea_details.php',
+    '/add-idea' => './resources/views/add_idea.php'
 ];
 
 // Get the requested URL path

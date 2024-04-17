@@ -46,7 +46,7 @@
 
     <div class="headingContainer">
         <h1>Add Idea</h1>
-        <a class="backButton" href="Ideas.php">Back</a>
+        <a class="backButton" href="/ideas">Back</a>
     </div>
     
     <div class="inputWrapper">

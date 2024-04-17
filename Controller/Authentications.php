@@ -25,7 +25,7 @@ class Authentications{
             $session->set('role', $role['role_name']);
 
             // Storing the last login for the user
-            $user->store("Login_Staff", ["staff_id", "date_time"], [$auth['staff_id'], date('Y-m-d H:i:s')]);
+            $user->store("Login_staff", ["staff_id", "date_time"], [$auth['staff_id'], date('Y-m-d H:i:s')]);
 
             if($role['role_name'] == 'Admin'){
                 header("Location: /admin-controls");

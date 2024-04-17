@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . './Model.php';
+require_once __DIR__ . '/Model.php';
 
 class Category extends Model{
     // In this class you can write all the custom methods that do not exist in the Parent Model

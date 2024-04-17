@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../Helpers/Database.php';
+require_once __DIR__ . './../Helpers/Database.php';
 
 // Modal Class
 class Model extends Database {

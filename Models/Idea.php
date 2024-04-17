@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/Model.php';
+require_once __DIR__ . './Model.php';
 
 class Idea extends Model{
     public function paginatedIdeas($currentPage, $recordsPerPage, $filter){

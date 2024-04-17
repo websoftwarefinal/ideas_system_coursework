@@ -1,7 +1,11 @@
 
 
 body{
-    background-color: rgba(94, 94, 94, 0.205);
+    background-image: url(/storage/images/main_image.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 
@@ -15,11 +19,7 @@ body{
     justify-content: center;
     align-items: center;
     height: fit-content;
-    background-image: url(/storage/images/main_image.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+    
 }
 
 .wrapper {

@@ -1,9 +1,11 @@
 <?php
-    require_once __DIR__ . '/../../Helpers/SessionManager.php';
-    require_once __DIR__ . '/../../Models/Model.php';
+    require_once __DIR__ . './../../Helpers/SessionManager.php';
+    require_once __DIR__ . './../../Models/Model.php';
 
     $session = new SessionManager();
     $session->sessionProtection();
+
+    $role = $session->get('role');
 
     if($role != 'Admin'){
         if($role == 'Staff'){

@@ -1,5 +1,5 @@
 <?php
-    require_once __DIR__ . '/../../Helpers/SessionManager.php';
+    require_once __DIR__ . './../../Helpers/SessionManager.php';
 
     $session = new SessionManager();
     $session->sessionProtection();

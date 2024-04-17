@@ -1,6 +1,6 @@
 <?php
-    require_once __DIR__ . '/../../Helpers/SessionManager.php';
-    require_once __DIR__ . '/../../Controller/IdeasController.php';
+    require_once __DIR__ . './../../Helpers/SessionManager.php';
+    require_once __DIR__ . './../../Controller/IdeasController.php';
 
     $session = new SessionManager();
     $session->sessionProtection();

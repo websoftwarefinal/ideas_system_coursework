@@ -1,5 +1,5 @@
 <?php
-    include __DIR__ . '/../../Helpers/Config.php';
+    include __DIR__ . './../../Helpers/Config.php';
 ?>
 
 <!DOCTYPE html>

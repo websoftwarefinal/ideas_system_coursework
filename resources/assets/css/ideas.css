@@ -1,12 +1,29 @@
 
 
-body{
+/*Main----------------------------*/
+
+.main{
     background-image: url(/storage/images/main_image.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    margin-top:60px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: (100vh - 60px);
+    height: fit-content;
+   
 }
+
+
+.wrapper {
+    width: 700px;
+    height: fit-content;
+}
+
 
 /*Navigation----------------------------*/
 
@@ -26,28 +43,6 @@ header nav .logo{
 
 header nav .logo img{
     height: 90%;
-}
-
-
-
-
-
-/*Main----------------------------*/
-
-.main{
-    margin-top:60px;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: fit-content;
-   
-}
-
-
-.wrapper {
-    width: 700px;
-    height: fit-content;
 }
 
 
@@ -303,8 +298,9 @@ hr{
         padding: 0;
     }
 
-    box{
-        height: fit-content;
+
+    .wrapper{
+        width: 100%;
     }
 
 
@@ -312,9 +308,11 @@ hr{
         width: 100%;
     }
 
-    .main{
+    /* .main{
+
+        min-height: calc(100vh - 60px);
         height: fit-content; 
-    }
+    } */
 
     /* .main .heading .addIdea{
         bottom: 15px;

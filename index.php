@@ -13,7 +13,7 @@ $routes = [
     '/add-idea' => './resources/views/add_idea.php',
     '/qa-coordinator' => './resources/views/qaco_Dashboard.php',
     '/qa-manager-controls' => './resources/views/qamanager_Controls.php',
-    '/qa-manager-statistics' => './resources/views/qamanager_Statistics.php'
+    '/qa-manager-dashboard' => './resources/views/qamanager_Dashboard.php'
 ];
 
 // Get the requested URL path

@@ -25,8 +25,8 @@
         <img src="/storage/images/logo.png" alt="">
         
         <ul>
+            <li><a href="/qa-manager-dashboard">DASHBOARD</a></li>
             <li><a href="/qa-manager-controls">CONTROLS</a></li>
-            <li><a href="/qa-manager-statistics">STATISTICS</a></li>
         </ul>
     </div>
 

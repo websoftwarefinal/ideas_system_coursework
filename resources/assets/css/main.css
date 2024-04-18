@@ -61,6 +61,7 @@ header nav{
     height: 70px;
     padding: 0 30px 0 30px;
     font-size: 1.5rem;
+    gap: 10px 20px;
 }
 
 header nav ul {
@@ -117,22 +118,19 @@ header nav .loginInfo{
 
 header nav .user .logoutButton{
     display: block;
+    margin-top: 10px;
     border: 2px solid var(--MainColour);
+    text-align: center;
     border-radius: 5px;
     font-size: 1rem;
     color: var(--MainColour);
     padding: 5px 10px;
-    margin: 5px;
 }
 
 header nav .user .logoutButton:hover{
     background-color: var(--MainColour);
     color: white;
     transition: 0.1s ease-in;
-}
-
-header nav a.active{
-    color: var(--MainColour);
 }
 
 
@@ -143,11 +141,22 @@ header .user{
     
 }
 
+
 header .user img{
     height: 100%;
    
 }
 
+
+header nav .welcome{
+     text-align: right;
+     flex-grow: 1;
+}
+
+header nav .welcome span{
+   font-weight: normal;
+   font-size: 1.2rem;
+}
 
 header .user:hover{
     transition: 0.1s ease-in;
@@ -181,27 +190,34 @@ header .user.active .dropDown{
     flex-direction: column;
     align-items: center;
     margin-top: 10px;
-    width: 230px;
+    width: 220px;
     height: fit-content;
     position: absolute;
     flex-wrap: nowrap;
-    right: 0;
-    text-align: center;
+    right: 20px;
+    text-align: left;
 }
 
 
 header .user .dropDown h2{
-        margin:5px;
-        font-weight: bold;
-        font-size: 1.3rem;
-        color: var(--MainColour);
-    } 
-    
+    margin:5px;
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: var(--MainColour);
+    text-align: center;
+} 
 
+
+    
+hr{
+    height: 1px; 
+    border-width: 0; color: gray; 
+    background-color: gray;
+}
 
 header .user .dropDown p{
     font-size:1rem;
-    padding: 5px;
+    margin: 5px 0;
     font-weight: bold;
 }
 
@@ -212,9 +228,13 @@ header .user .dropDown img{
 
 
 header nav .userInfo{
-    max-width: 250px;
+    width: 180px;
+    overflow-wrap: break-word;
 }
 
+header nav a.active{
+    color: var(--MainColour);
+}
 
 
 
@@ -282,5 +302,4 @@ header nav .userInfo{
         font-size: 13px;
     }
 
-    
 }

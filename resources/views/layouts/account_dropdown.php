@@ -11,13 +11,14 @@
 
 <div class="user">
     <img src="/storage/images/user_badge.png" alt="">
+    <h2 class="welcome"> <?php echo $session->get('first_name'); ?><br><span>Welcome</span></h2>
 
     <div class="dropDown">
         <img src="/storage/images/user_badge.png" alt="">
         <div class="userInfo">
-            <h2>Welcome <?php echo $session->get('first_name'); ?></h2>
-            <p class="email"><?php echo $session->get('username'); ?></p>
-            <p class="lastLogin">Last Login: <?php echo $staff_login['date_time']; ?></p>
+            <h2><?php echo $session->get('first_name'); ?></h2>
+            <p class="email">Email: <br><hr> <?php echo $session->get('username'); ?></p>
+            <p class="lastLogin">Last Login: <br><hr> <?php echo $staff_login['date_time']; ?></p>
 
             <form action="/Controller/Authentications.php" method="post" style="width:100%;">
                 <input type="hidden" name="logout" id="logout">

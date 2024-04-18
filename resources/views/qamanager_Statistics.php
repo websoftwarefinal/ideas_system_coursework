@@ -26,8 +26,8 @@
         
         
         <ul>
+            <li><a class="active" href="qamanager_Statistics.php">DASHBOARD</a></li>
             <li><a href="qamanager_Controls.php">CONTROLS</a></li>
-            <li><a href="qamanager_Statistics.php">STATISTICS</a></li>
          </ul>
     </div>
 

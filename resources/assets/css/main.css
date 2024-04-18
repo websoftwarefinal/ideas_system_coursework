@@ -131,6 +131,11 @@ header nav .user .logoutButton:hover{
     transition: 0.1s ease-in;
 }
 
+header nav a.active{
+    color: var(--MainColour);
+}
+
+
 
 
 header .user{

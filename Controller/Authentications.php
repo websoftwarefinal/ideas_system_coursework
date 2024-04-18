@@ -29,6 +29,10 @@ class Authentications{
 
             if($role['role_name'] == 'Admin'){
                 header("Location: /admin-controls");
+            }else if($role['role_name'] == 'QA Manager'){
+                header("Location: /qa-manager-controls");
+            }else if($role['role_name'] == 'QA Cordinator'){
+                header("Location: /qa-coordinator");
             }else{
                 header("Location: /ideas");
             }

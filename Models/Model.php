@@ -35,10 +35,12 @@ class Model extends Database {
     }
 
     // Method to delete record
-    public function delete($table, $id) {
+    public function delete($table, $id, $id_name) {
         try {
-            $sql = "DELETE FROM $table WHERE id = ?";
-            $params = [$id];
+            $sql = "DELETE FROM $table WHERE $id_name = ?";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute([$id]);
+            return true;
             return $this->pdo->executeQuery($sql, $params);
         } catch (PDOException $e) {
             echo "Query failed: " . $e->getMessage();
@@ -87,5 +89,18 @@ class Model extends Database {
         // Getting the data that's just been submitted
         $query = $this->pdo->query("SELECT * FROM $table ORDER BY $primary_key DESC LIMIT 1");
         return $query->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function count($table, $id, $id_name){
+        try {
+            $sql = "SELECT COUNT(*) AS row_count FROM $table WHERE $id_name = ?";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute([$id]);
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            $row_count = $result['row_count'];
+            return $row_count;
+        } catch (PDOException $e) {
+            echo "Query failed: " . $e->getMessage();
+        }
     }
 }

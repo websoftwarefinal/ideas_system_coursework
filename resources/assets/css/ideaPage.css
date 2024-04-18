@@ -29,7 +29,7 @@ body{
 
 
 
-form{
+#idea, #comment{
     background-color: white;
     width: 100%;
     margin-bottom: 20px;
@@ -186,14 +186,17 @@ header nav .logo img{
 
 #idea .iconContainer .like:hover{
     color: green;
+    cursor: pointer;
 }
 
 #idea .iconContainer .dislike:hover{
     color: rgb(255, 5, 5);
+    cursor: pointer;
 }
 
 #idea .iconContainer .report:hover{
     color: rgb(255, 0, 0);
+    cursor: pointer;
 }
 
 /*Idea Form----------------------------*/

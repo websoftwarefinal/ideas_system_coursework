@@ -28,6 +28,10 @@
     if($hostname == 'localhost'){
         $host_name_with_port = $hostname . ':' . $port;
     }
+
+    $likes_count = $ideas->likesCount($idea_id);
+
+    $dislikes_count = $ideas->dislikesCount($idea_id);
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +65,7 @@
 
 <!-- IDEA Details-->
 
-<form id="idea" action="">
+<div id="idea">
     <div class="headingContainer">
         <h2>By <?php echo $idea['anonymous'] != '1' ? $idea['first_name'] . ' ' . $idea['last_name'] : 'Anonymous'; ?></h2>
         <h2>Date: <?php echo date('Y-m-d H:i:s', strtotime($idea['date'])); ?></h2>
@@ -81,24 +85,32 @@
 
     <div class="box2">
         <div class="iconContainer">
-            <div>
-                <button class="like"> 
-                Like</button>
-                <p>123</p>
-            </div>
+            <form action="/Controller/LikesController.php" method="POST">
+                <div>
+                    <input type="hidden" name="idea_id" value="<?php echo $idea_id; ?>" />
+                    <button class="like"> 
+                    Like</button>
+                    <p><?php echo $likes_count; ?></p>
+                </div>
+            </form>
 
-            <div>
-                <button class="dislike"> 
-                Dislike</button>
-                <p>12</p>
-            </div>
+            <form action="/Controller/DislikesController.php" method="POST">
+                <div>
+                    <input type="hidden" name="idea_id" value="<?php echo $idea_id; ?>" />
+                    <button class="dislike"> 
+                    Dislike</button>
+                    <p><?php echo $dislikes_count; ?></p>
+                </div>
+            </form>
 
-            <button class="report">
-                Report
-            </button>
+            <form action="/Controller/ReportsController.php" method="POST">
+                <button class="report">
+                    Report
+                </button>
+            </form>
         </div>     
     </div>
-</form>
+</div>
 
 <!-- Add Comment -->
 
@@ -136,9 +148,9 @@
 
 
     <?php foreach($comments as $comment) { ?>
-        <div class="commentBox">
+        <div class="commentBox" style="border-bottom: 1px solid #d0d0d0; padding-bottom: 0px !important;">
             <div class="headingContainer">
-                <h2>By User</h2>
+                <h2>By: <?php echo $comment['anonymous'] == '1' ? 'anonymous' : $comment['first_name'] . ' ' . $comment['last_name']; ?></h2>
                 <h2><?php echo timeDifference($comment['date']); ?></h2>
                 <!-- <a class="backButton" href="Ideas.php">Back</a> -->
             </div>
@@ -147,16 +159,7 @@
         
             <div class="box2">
                 <div class="iconContainer">
-                    <div>
-                        <button class="likeComment"> 
-                        Like</button>
-                        <p>123</p>
-                    </div>
-
-
-                <div class="box2">
-                    <div class="iconContainer">
-                        <!-- <div>
+                    <!-- <div>
                             <button class="likeComment"> 
                             Like</button>
                             <p>123</p>
@@ -167,16 +170,11 @@
                             Dislike</button>
                             <p>12</p>
                         </div> -->
-
-                    <button class="reportComment">
-                        Report
-                    </button>
-                    </div> 
                 </div>          
             </div>
     
-        </div><hr style="margin-top: 10px;">
-        <?php } ?>
+        </div>
+    <?php } ?>
 
 </div>
    

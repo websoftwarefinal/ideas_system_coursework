@@ -39,6 +39,16 @@ class IdeasController{
             return $e;
         }
     }
+
+    public function likesCount($idea_id){
+        $idea = new Idea();
+        return $idea->count('Likes', $idea_id, 'idea_id');
+    }
+
+    public function dislikesCount($idea_id){
+        $idea = new Idea();
+        return $idea->count('Dislikes', $idea_id, 'idea_id');
+    }
 }
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){

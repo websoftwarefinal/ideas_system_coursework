@@ -9,10 +9,12 @@
     $staff_login = $staff->lastStaffLogin($staff_id);
 ?>
 
+
+<h2 class="welcome"> <?php echo $session->get('first_name'); ?><br><span>Welcome</span></h2>
+
+
 <div class="user">
     <img src="/storage/images/user_badge.png" alt="">
-    <h2 class="welcome"> <?php echo $session->get('first_name'); ?><br><span>Welcome</span></h2>
-
     <div class="dropDown">
         <img src="/storage/images/user_badge.png" alt="">
         <div class="userInfo">

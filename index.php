@@ -10,7 +10,10 @@ $routes = [
     '/create-account' => './resources/views/create-account.php',
     '/ideas' => './resources/views/ideas.php',
     '/idea-details' => './resources/views/idea_details.php',
-    '/add-idea' => './resources/views/add_idea.php'
+    '/add-idea' => './resources/views/add_idea.php',
+    '/qa-coordinator' => './resources/views/qaco_Dashboard.php',
+    '/qa-manager-controls' => './resources/views/qamanager_Controls.php',
+    '/qa-manager-dashboard' => './resources/views/qamanager_Dashboard.php'
 ];
 
 // Get the requested URL path

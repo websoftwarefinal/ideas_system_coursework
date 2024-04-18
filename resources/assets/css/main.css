@@ -59,8 +59,8 @@ header nav{
     justify-content: space-between;
     align-items: center;
     height: 70px;
-    padding: 0 30px 0 30px;
-    font-size: 1.5rem;
+    padding: 0 20px;
+    font-size: 1.2rem;
     gap: 10px 20px;
 }
 
@@ -102,8 +102,8 @@ header nav li a:hover{
  
 /* Navigation for drop downs and other pages*/
 
-header nav p{
-    font-size: 2rem;
+header nav .logo p{
+    font-size: 1.5rem;
    
 }
 
@@ -150,6 +150,7 @@ header .user img{
 
 header nav .welcome{
      text-align: right;
+     font-size: 1.5rem;
      flex-grow: 1;
 }
 

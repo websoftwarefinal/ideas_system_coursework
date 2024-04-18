@@ -30,23 +30,7 @@
         </ul>
     </div>
 
-    
-
-   
-    <div class="user">
-            <img src="/storage/images/User_Badge.png" alt="">
-            <div class="dropDown">
-                <img src="/storage/images/User_Badge.png" alt="">
-                <h2>Welcome QA Manager</h2>
-                <div class="userInfo">
-                    <p class="email"> someone@gmail.com</p>
-                    <p class="lastLogin">Last Login: 12/12/12</p>
-                    <a href="" class="logoutButton">LOG OUT</a>
-                </div>
-            </div>
-    </div>
-
- 
+    <?php require_once __DIR__ . '/layouts/account_dropdown.php'; ?>
 </nav>
 </header>
 

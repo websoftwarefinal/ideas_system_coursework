@@ -43,7 +43,7 @@
 <!-- Download BOX -->
  <div class="download box">
     <h2>Download Center</h2>
-    <p>You may download all files in a csv after the submission date has passed. <br><br> All attachments documents will be downloaded as a zip file.</p>
+    <p>You may download all files after the submission date has passed. <br><br> All documents will be downloaded as a zip file.</p>
     <button class="download">Download Files</button>
     <p class="errorMessage">Error Message</p>
 </div> 
@@ -52,26 +52,34 @@
 
 
 <!-- Categories BOX -->
-        <div class="categories box">
+<div class="categories box">
             <h2>Categories</h2>
-            <div class="categoryList">
-                <p>List of Categories</p>
-                <ul>
-                    <li>Category</li>
-                </ul>
-            </div>
-
             <form id="updateCategory" action="">
 
                 <div class="inputWrapper">
                     <label for="categoryInput">Insert Category:</label>
-                    <input type="text" name="categoryInput" id="categoryInput" placeholder="Insert category to add or remove" required>
+                    <input type="text" name="categoryInput" id="categoryInput" placeholder="Insert category to add" required>
                 </div>
-
                 <button class="addCategory">Add</button>
-                <button class="removeCategory">Remove</button>
                 <p class="errorMessage">Error Message</p>
+
             </form>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Categories</th>
+                    </tr>
+                </thead>
+
+                <tr>
+                    <td>name of category
+
+                    <form id="removeCategory" action="">
+                            <button class="removeCategory">Remove</button>
+                        </form>
+                    </td> 
+                </tr>
+            </table>
 
             
         </div>
@@ -81,23 +89,33 @@
 <div class="accountBan box">
             <h2>Account Banning</h2>
            
-            <form id="ban" action="">
-                <div class="inputWrapper">
-                    <label for="userBan">Insert User's Email:</label>
-                    <input type="text" name="userBan" id="userBan" placeholder="Insert email" required>
-                </div>
+             
+            <table>
+                    <thead>
+                        <tr>
+                            <th>Accounts</th>
+                        </tr>
+                    </thead>
 
-                <div class="checkboxWrapper">
-                    <input type="checkbox" name="hidePosts" id="hidePosts" value="true">
-                    <label for="hidePosts">Hide all posts by the user</label>
-                </div>
+                    <tr>
+                        <td>
+                            
+                        <p>account Name <span>Reports: 1</span></p>
 
-                <button class="ban">Ban User</button>
-                <button class="unban">Unban User</button>
-            </form>
+                        <form id="ban" action="">
+                        
+                            <div class="checkboxWrapper">
+                                <input type="checkbox" name="hidePosts" id="hidePosts" value="true">
+                                <label for="hidePosts">Hide Posts</label>
+                            </div>
 
-            <p class="errorMessage">Error Message</p>
-        </div>
+                            <button class="ban">Ban </button>
+                            <button class="unban">Unban</button>
+                        </form>
+                        </td> 
+                    </tr>
+                </table>
+</div>
 
 
 

@@ -18,7 +18,6 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/resources/assets/css/reset.css"> <!-- source of reset style sheet www.css-tricks.com -->
     <link rel="stylesheet" href="/resources/assets/css/main.css">
-    <link rel="stylesheet" href="/resources/assets/css/createAccount.css">
     <link rel="stylesheet" href="/resources/assets/css/ideas.css">
     <title>Ideas</title>
 </head>

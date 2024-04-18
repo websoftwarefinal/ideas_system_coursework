@@ -18,16 +18,22 @@ CREATE TABLE Department (
     department_id INT AUTO_INCREMENT PRIMARY KEY,
     department_name VARCHAR(255) NOT NULL
 );
+CREATE TABLE deadline (
+    deadline_id INT AUTO_INCREMENT PRIMARY KEY,
+    deadline_date DATETIME
+);
 
 -- Create Staff table
 CREATE TABLE Staff (
     staff_id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     email_address VARCHAR(255) NOT NULL,
     phone_number TEXT NOT NULL,
     password VARCHAR(255) NOT NULL,
     account_status VARCHAR(20) NOT NULL,
+    posts_banned VARCHAR(20) NOT NULL,
     position VARCHAR(50) NOT NULL,
     role_id INT,
     department_id INT,
@@ -48,10 +54,12 @@ CREATE TABLE Idea (
     idea_id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     description TEXT NOT NULL,
-    date DATE NOT NULL,
+    date DATETIME NOT NULL,
     anonymous BOOLEAN,
     staff_id INT,
     supporting_document TEXT,
+    deadline_id INT,
+    FOREIGN KEY (deadline_id) REFERENCES deadline(deadline_id),
     FOREIGN KEY (staff_id) REFERENCES Staff(staff_id)
 );
 
@@ -72,6 +80,8 @@ CREATE TABLE Comments (
     date DATE NOT NULL,
     anonymous BOOLEAN,
     text TEXT NOT NULL,
+    deadline_id INT,
+    FOREIGN KEY (deadline_id) REFERENCES deadline(deadline_id),
     FOREIGN KEY (author_id) REFERENCES Staff(staff_id),
     FOREIGN KEY (idea_id) REFERENCES Idea(idea_id)
 );
@@ -111,10 +121,4 @@ CREATE TABLE report_comment (
     staff_id INT,
     FOREIGN KEY (idea_id) REFERENCES Idea(idea_id),
     FOREIGN KEY (staff_id) REFERENCES Staff(staff_id)
-);
-CREATE TABLE deadline (
-    deadline_id INT AUTO_INCREMENT PRIMARY KEY,
-    idea_id INT,
-    deadline_date DATETIME,
-    FOREIGN KEY (idea_id) REFERENCES Idea(idea_id)
 );

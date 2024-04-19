@@ -152,6 +152,7 @@ header nav .welcome{
      text-align: right;
      font-size: 1.2rem;
      flex-grow: 1;
+     margin-right: -10px;
 }
 
 header nav .welcome span{

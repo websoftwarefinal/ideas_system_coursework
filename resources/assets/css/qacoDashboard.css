@@ -7,6 +7,7 @@ body{
 /*Navigation----------------------------*/
 
 header nav p{
+    margin-left: 10px;
     font-size: 2rem;
    
 }

@@ -150,13 +150,13 @@ header .user img{
 
 header nav .welcome{
      text-align: right;
-     font-size: 1.5rem;
+     font-size: 1.2rem;
      flex-grow: 1;
 }
 
 header nav .welcome span{
    font-weight: normal;
-   font-size: 1.2rem;
+   font-size: 0.9rem;
 }
 
 header .user:hover{
@@ -289,6 +289,7 @@ header nav a.active{
         nav ul.active{
             left: 0;
         }
+
 
 }
 

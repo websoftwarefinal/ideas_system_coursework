@@ -64,7 +64,7 @@ header nav .logo img{
 
 /* Content-----------------------------------------------*/
 
-h2 span{
+.main h2 span{
     color: var(--MainColour);
 }
   
@@ -169,8 +169,10 @@ table td{
         width: 100%;
     }
 
-    header nav p{
-        font-size: 1.3rem;
+    header nav .logo p{
+            font-size: 1rem;
+            white-space: wrap;
+            width: 100px;
     }
 
     .logo img{

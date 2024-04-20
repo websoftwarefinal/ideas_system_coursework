@@ -20,5 +20,15 @@ $user->createCategories();
 $session = new SessionManager();
 
 if($session->get('username')){
-    header("Location: /home");
+    $role = $session->get('role');
+    
+    if($role == 'Admin'){
+        header("Location: /admin-controls");
+    }else if($role == 'Staff'){
+        header("Location: /ideas");
+    }else if($role == 'QA Manager'){
+        header("Location: /qa-manager-controls");
+    }else if($role == 'QA Cordinator'){
+        header("Location: /qa-cordinator-controls");
+    }
 }

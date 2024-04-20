@@ -16,6 +16,8 @@
         $idea = $ideas->show($_GET['idea_id']);
     }
 
+    $ideas->updatePopularity($idea_id);
+
     $com = new CommentsController;
     $comments = $com->index($idea_id);
 
@@ -32,6 +34,8 @@
     $likes_count = $ideas->likesCount($idea_id);
 
     $dislikes_count = $ideas->dislikesCount($idea_id);
+
+    $reports_count = $ideas->reportsCount($idea_id);
 ?>
 
 <!DOCTYPE html>
@@ -104,8 +108,9 @@
             </form>
 
             <form action="/Controller/ReportsController.php" method="POST">
-                <button class="report">
-                    Report
+                <input type="hidden" name="idea_id" value="<?php echo $idea_id; ?>" />
+                <button class="report" style="width: 300px;">
+                    Report <?php echo $reports_count; ?>
                 </button>
             </form>
         </div>     

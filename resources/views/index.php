@@ -49,7 +49,7 @@
     <form class="signIn" action="./Controller/Authentications.php" method="post">
         <h2>SIGN IN</h2>
         <br>
-        <input type="text" name="username" id="Username" placeholder="Username">
+        <input type="text" name="username" id="Username" placeholder="Email">
         <input type="password" name="password" id="Password" placeholder="Password">
         <button type="submit">Login</button>
         <a href="">Forgot Password?</a>

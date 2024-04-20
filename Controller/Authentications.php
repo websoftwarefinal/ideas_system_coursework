@@ -12,7 +12,7 @@ class Authentications{
         $auth = $user->authenticate("Staff", $username, $password);
 
 
-        if($auth){
+        if($auth && $auth['account_status'] == 'active'){
             $session->unsetSession('error');
 
             $session->set('staff_id', $auth['staff_id']);
@@ -37,6 +37,12 @@ class Authentications{
                 header("Location: /ideas");
             }
         }else{
+            if($auth && $auth['account_status'] == 'banned'){
+                $session->set('error', 'Your account is banned!');
+                header("Location: /");
+                return;   
+            }
+
             $session->set('error', 'Email or password is incorrect!');
             header("Location: /");
         }

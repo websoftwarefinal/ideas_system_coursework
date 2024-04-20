@@ -1,4 +1,30 @@
 
+<?php
+    require_once __DIR__ . './../../Controller/CategoriesController.php';
+    require_once __DIR__ . './../../Controller/QaManagerStatisticsController.php';
+    
+    $statistics = new QaManagerStatisticsController;
+
+    $exceptions = $statistics->exceptions();
+    $statistics = $statistics->statistics();
+
+    $session = new SessionManager;
+
+    $session->sessionProtection();
+
+    $role = $session->get('role');
+
+    if($role != 'QA Manager'){
+        if($role == 'Staff'){
+            header("Location: /ideas");
+        }else if($role == 'Admin'){
+            header("Location: /admin-controls");
+        }else if($role == 'QA Cordinator'){
+            header("Location: /qa-cordinator-controls");
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +73,7 @@
 
         <div id="myChart"></div>
         <div class="statsTable">
-                <table>
+                <table style="max-width: 300px;">
                     <thead>
                         <tr>
                             <th>Department</th>
@@ -56,30 +82,13 @@
                         </tr>
                     </thead>
 
-                    <tr>
-                        <td>Computer Science</td>
-                        <td>5</td> 
-                        <td>3</td>
-                    </tr>
-
-                    <tr>
-                        <td>Engineering</td>
-                        <td>5</td> 
-                        <td>3</td>
-                    </tr>
-
-                    <tr>
-                        <td>Medicine</td>
-                        <td>5</td> 
-                        <td>3</td>
-                    </tr>
-
-
-                    <tr>
-                        <td>Law</td>
-                        <td>5</td> 
-                        <td>3</td>
-                    </tr>
+                    <?php foreach($statistics as $statistic) { ?>
+                        <tr>
+                            <td><?php echo $statistic['department_name']; ?></td>
+                            <td><?php echo $statistic['ideas']; ?></td> 
+                            <td><?php echo $statistic['contributors']; ?></td>
+                        </tr>
+                    <?php } ?>
                 </table>
 
             </div>
@@ -103,9 +112,9 @@
                     </thead>
 
                     <tr>
-                        <td>07</td>
-                        <td>05</td> 
-                        <td>03</td>
+                        <td><?php echo $exceptions['ideas_without_comments']; ?></td>
+                        <td><?php echo $exceptions['anonymous_ideas']; ?></td> 
+                        <td><?php echo $exceptions['anonymous_comments']; ?></td>
                     </tr>
                 </table>
         </div>

@@ -20,4 +20,17 @@ class Comment extends Model{
             echo "Query failed: " . $e->getMessage();
         }
     }
+
+    public function anonymousComments(){
+        try {
+            $sql = "SELECT COUNT(*) AS row_count FROM Comments WHERE anonymous = ?";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute(['1']);
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            $row_count = $result['row_count'];
+            return $row_count;
+        } catch (PDOException $e) {
+            echo "Query failed: " . $e->getMessage();
+        }
+    }
 }

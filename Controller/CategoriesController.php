@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . './../Models/Category.php';
+require_once __DIR__ . './../Helpers/SessionManager.php';
 
 class CategoriesController{
     public function index(){
@@ -16,7 +17,16 @@ class CategoriesController{
 
     public function delete($id){
         $category = new Category;
-        $category->delete('Categories', $id, 'category_id');
+
+        $ideas_count = $category->categoryIdeasCount($id);
+
+        if($ideas_count == 0){
+            $category->delete('Categories', $id, 'category_id');
+        }else{
+            $session = new SessionManager;
+            $session->set('delete_category_error', 'Category with ideas cannot be deleted!');
+        }
+
         header('Location: /qa-manager-controls');
     }
 }

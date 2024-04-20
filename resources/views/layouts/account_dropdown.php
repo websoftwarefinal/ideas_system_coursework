@@ -14,9 +14,9 @@
 
 
 <div class="user">
-    <img src="/storage/images/user_badge.png" alt="">
+    <img src="/storage/images/user_badge.png" alt="A circular user badge button.">
     <div class="dropDown">
-        <img src="/storage/images/user_badge.png" alt="">
+        <img src="/storage/images/user_badge.png" alt="A circular user badge button.">
         <div class="userInfo">
             <h2><?php echo $session->get('first_name'); ?></h2>
             <p class="email">Email: <br><hr> <?php echo $session->get('username'); ?></p>

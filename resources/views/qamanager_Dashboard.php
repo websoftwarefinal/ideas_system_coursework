@@ -22,7 +22,7 @@
         </div>
 
     <div class=logo>
-        <img src="/storage/images/logo.png" alt="">
+        <img src="/storage/images/logo.png" alt="University Logo.">
         
         
         <ul>
@@ -45,7 +45,7 @@
  <div class="statistics box">
     <h2>Statistics</h2>
 
-        <div id="myChart"></div>
+        <div id="myChart" alt="Statistics chart of ideas submitted."></div>
         <div class="statsTable">
                 <table>
                     <thead>

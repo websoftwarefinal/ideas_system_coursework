@@ -27,7 +27,7 @@
 <header>
     <nav>
         <div class=logo>
-            <img src="/storage/images/logo.png" alt="">
+            <img src="/storage/images/logo.png" alt="University Logo.">
             <a href="Ideas.php">Ideas</a>
         </div>
     

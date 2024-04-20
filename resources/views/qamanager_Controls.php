@@ -22,7 +22,7 @@
         </div>
 
     <div class=logo>
-        <img src="/storage/images/logo.png" alt="">
+        <img src="/storage/images/logo.png" alt="University Logo.">
         
         <ul>
             <li><a href="/qa-manager-dashboard">DASHBOARD</a></li>

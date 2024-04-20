@@ -18,7 +18,7 @@
 <header>
 <nav>
 <div class=logo>
-    <img src="/storage/images/logo.png" alt="">
+    <img src="/storage/images/logo.png" alt="University Logo.">
     <p>UNIVERSITY OF EWSD</p>
 </div>
     <ul>

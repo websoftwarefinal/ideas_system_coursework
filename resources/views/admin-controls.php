@@ -100,7 +100,7 @@
         <!-- BROWSER INFORMATION -->
             <div class="browsers">
                  <h3>Browsers Used</h3>   
-                <canvas id="myChart"></canvas>   
+                <canvas id="myChart"  alt="Bar graph of browsers used."></canvas>   
             </div>
                
 

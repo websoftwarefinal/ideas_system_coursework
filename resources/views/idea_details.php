@@ -50,7 +50,7 @@
 <header>
     <nav>
         <div class=logo>
-            <img src="/storage/images/logo.png" alt="">
+            <img src="/storage/images/logo.png" alt="University Logo.">
             <a href="/ideas">Ideas</a>
         </div>
         <?php require_once __DIR__ . '/layouts/account_dropdown.php'; ?>

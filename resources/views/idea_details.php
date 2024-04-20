@@ -71,9 +71,13 @@
 
 <div id="idea">
     <div class="headingContainer">
-        <h2>By <?php echo $idea['anonymous'] != '1' ? $idea['first_name'] . ' ' . $idea['last_name'] : 'Anonymous'; ?></h2>
-        <h2>Date: <?php echo date('Y-m-d H:i:s', strtotime($idea['date'])); ?></h2>
-        <!-- <a class="backButton" href="Ideas.php">Back</a> -->
+
+    
+        <h2>By <?php echo $idea['anonymous'] != '1' ? $idea['first_name'] . ' ' . $idea['last_name'] : 'Anonymous'; ?>
+        <br><span>Date: <?php echo date('Y-m-d H:i:s', strtotime($idea['date'])); ?></span>
+        </h2>
+        <a class="backButton" href="Ideas.php">Back</a>
+
     </div>
 
     <h1><?php echo $idea['title']; ?></h1>

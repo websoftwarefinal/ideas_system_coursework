@@ -68,6 +68,9 @@
 <main class="main">
 <div class="wrapper flexbox">
 
+<div class="heading box">
+    <h2>QA Manager Controls</h2>
+</div>
 
 <!-- Download BOX -->
  <div class="download box">

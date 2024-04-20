@@ -73,7 +73,9 @@ button{
      margin: 10px 0;
  }
 
-
+ .heading h2{
+    margin-bottom: 0;
+}
 
 
  /* Update Category _____________________________*/

@@ -66,6 +66,9 @@
 <main class="main">
 <div class="wrapper flexbox">
 
+<div class="heading box">
+    <h2>QA Manager Dashboard</h2>
+</div>
 
 <!-- Statistics BOX -->
  <div class="statistics box">

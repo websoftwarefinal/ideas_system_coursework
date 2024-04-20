@@ -29,6 +29,11 @@
 <!--MAIN BODY-->
 <main class="main">
 <div class="wrapper flexbox">
+
+<div class="heading box">
+    <h2>QA Coordinator Dashboard</h2>
+</div>
+
     <!-- Main stats BOX -->
     <div class="box">
             <h2>Department: <span>Department Name</span> </h2>

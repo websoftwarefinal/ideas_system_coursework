@@ -29,10 +29,20 @@
   <!--HEADER/NAV-->
 <header>
 <nav>
-    <div class=logo>
-        <img src="/storage/images/logo.png" alt="University Logo.">
-        <p>Ideas</p>
-    </div>
+<div class="burgerMenu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+<div class=logo>
+        <img src="Images/logo.png" alt="university logo">
+        
+        <ul>
+            <li><a class="active" href="ideas.php">IDEAS</a></li>
+            <li><a href="qaco_Dashboard.php">DASHBOARD</a></li>
+         </ul>
+</div>
 
     <?php require_once __DIR__ . '/layouts/account_dropdown.php'; ?>
 </nav>
@@ -119,6 +129,7 @@
 
 <!-- Scripts -->
 <script src="/resources/assets/js/dropDown.js"></script>
+<script src="/resources/assets/js/Menu.js"></script>
 <script>
     function redirectToPage(value) {
         // Get the selected value

@@ -43,6 +43,7 @@ form button{
     color: red;
     font-size: 1rem;
     margin-top: 10px;
+    display: none;
 }
 
 

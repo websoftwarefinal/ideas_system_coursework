@@ -49,8 +49,15 @@
     <form class="signIn" action="./Controller/Authentications.php" method="post">
         <h2>SIGN IN</h2>
         <br>
-        <input type="text" name="username" id="Username" placeholder="Email">
-        <input type="password" name="password" id="Password" placeholder="Password">
+        <div class="inputWrapper">
+            <label for="Username">Username:</label>
+            <input type="text" name="username" id="Username" placeholder="Email" required>
+        </div>
+
+        <div class="inputWrapper">
+            <label for="Password">Password:</label>
+            <input type="password" name="password" id="Password" placeholder="Password" required>
+        </div>
         <button type="submit">Login</button>
         <a href="">Forgot Password?</a>
         <p class="errorMessage"><?php echo $session->get('error') ; ?></p>

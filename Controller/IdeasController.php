@@ -20,6 +20,13 @@ class IdeasController{
     public function show($id){
         $idea = new Idea();
 
+        // Incrementing views
+        $session = new SessionManager;
+        $staff_id = $session->get('staff_id');
+
+        $idea->store('Views', ['idea_id', 'staff_id'], [$id, $staff_id]);
+
+        // Getting the details of the idea
         return $idea->singleIdea($id);
     }
 
@@ -49,6 +56,22 @@ class IdeasController{
         $idea = new Idea();
         return $idea->count('Dislikes', $idea_id, 'idea_id');
     }
+
+    public function reportsCount($idea_id){
+        $idea = new Idea();
+        return $idea->count('report_idea', $idea_id, 'idea_id');
+    }
+
+    public function updatePopularity($idea_id){
+        $idea = new Idea();
+
+        $likes = $idea->count('Likes', $idea_id, 'idea_id');
+        $dislikes = $idea->count('Dislikes', $idea_id, 'idea_id');
+
+        $popularity = (int)$likes - (int)$dislikes;
+
+        $idea->update('Idea', $idea_id, ['popularity'], [$popularity], 'idea_id');
+    }
 }
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -67,7 +90,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $description = $_POST['description'];
     $date = date('Y-m-d H:i:s');
     $supporting_document = isset($_FILES["supporting_document"]) && $_FILES["supporting_document"]["error"] == UPLOAD_ERR_OK ? FileStorageHelper::saveFile("supporting_document") : null;
-    $anonymous = isset($_POST['anonymous']) && $_POST['anonymous'] == 1 ? true : false;
+    $anonymous = isset($_POST['anonymous']) && $_POST['anonymous'] == 1 ? 1 : 0;
 
     $session = new SessionManager;
     $data = [

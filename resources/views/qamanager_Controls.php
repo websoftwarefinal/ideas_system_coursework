@@ -1,4 +1,33 @@
 
+<?php
+    require_once __DIR__ . './../../Controller/CategoriesController.php';
+    require_once __DIR__ . './../../Models/User.php';
+    require_once __DIR__ . './../../Helpers/SessionManager.php';
+
+    $categories = new CategoriesController;
+
+    $categories_list = $categories->index();
+
+    $model = new User;
+    $staffs = $model->getUsers();
+
+    $session = new SessionManager;
+
+    $session->sessionProtection();
+
+    $role = $session->get('role');
+
+    if($role != 'QA Manager'){
+        if($role == 'Staff'){
+            header("Location: /ideas");
+        }else if($role == 'Admin'){
+            header("Location: /admin-controls");
+        }else if($role == 'QA Cordinator'){
+            header("Location: /qa-cordinator-controls");
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,7 +74,7 @@
     <h2>Download Center</h2>
     <p>You may download all files after the submission date has passed. <br><br> All documents will be downloaded as a zip file.</p>
     <button class="download">Download Files</button>
-    <p class="errorMessage">Error Message</p>
+    <p class="errorMessage"><?php echo $session->get('down_file_error'); ?></p>
 </div> 
     
 
@@ -54,34 +83,43 @@
 <!-- Categories BOX -->
 <div class="categories box">
             <h2>Categories</h2>
-            <form id="updateCategory" action="">
-
+            <form id="updateCategory" action="/Controller/CategoriesController.php" method="POST">
                 <div class="inputWrapper">
                     <label for="categoryInput">Insert Category:</label>
-                    <input type="text" name="categoryInput" id="categoryInput" placeholder="Insert category to add" required>
+                    <input type="text" name="category_name" id="categoryInput" placeholder="Insert category to add" required>
                 </div>
                 <button class="addCategory">Add</button>
-                <p class="errorMessage">Error Message</p>
-
+                <p class="errorMessage"><?php echo $session->get('categories_error'); ?></p>
             </form>
+           
             <table>
                 <thead>
                     <tr>
                         <th>Categories</th>
                     </tr>
+                    
                 </thead>
 
-                <tr>
-                    <td>name of category
+                <?php if($session->get('delete_category_error')){ ?>
+                    <tr>
+                        <td><p style="color: red; font-size: 16px;">*<?php echo $session->get('delete_category_error'); ?></p></td>
+                    </tr>
+                <?php } ?>
 
-                    <form id="removeCategory" action="">
-                            <button class="removeCategory">Remove</button>
-                        </form>
-                    </td> 
-                </tr>
+                <?php foreach($categories_list as $category) { ?>
+                    <tr>
+                        <td>
+                            <?php echo $category['category_name']; ?>
+
+                            <form id="removeCategory" action="/Controller/CategoriesController.php" method="POST">
+                                <input type="hidden" name="_method" value="delete" />
+                                <input type="hidden" name="category_id" value="<?php echo $category['category_id']; ?>" />
+                                <button class="removeCategory">Remove</button>
+                            </form>
+                        </td> 
+                    </tr>
+                <?php } ?>
             </table>
-
-            
         </div>
 
 
@@ -97,23 +135,41 @@
                         </tr>
                     </thead>
 
+                    <?php foreach($staffs as $staff) { ?>
                     <tr>
                         <td>
                             
-                        <p>account Name <span>Reports: 1</span></p>
+                        <p><?php echo $staff['first_name'] . ' ' . $staff['last_name']; ?> <span>Reports: <?php echo $model->count('report_idea', $staff['staff_id'], 'staff_id'); ?></span></p>
 
-                        <form id="ban" action="">
-                        
+                        <form id="ban" action="/Controller/StaffsController.php" method="POST">
+                            <input type="hidden" name="_method" value="update_status" />
+                            <input type="hidden" name="staff_id" value="<?php echo $staff['staff_id']; ?>" />
+
                             <div class="checkboxWrapper">
-                                <input type="checkbox" name="hidePosts" id="hidePosts" value="true">
+                                <?php if($staff['posts_banned'] == 1) { ?>
+                                    <input type="checkbox" name="posts_banned" id="hidePosts" value="1" checked>
+                                <?php } ?>
+
+                                <?php if($staff['posts_banned'] != 1) { ?>
+                                    <input type="checkbox" name="posts_banned" id="hidePosts" value="1">
+                                <?php } ?>
+
                                 <label for="hidePosts">Hide Posts</label>
                             </div>
+                            
+                            <?php if($staff['account_status'] == 'banned') { ?>
+                                <input type="hidden" name="status" value="active" />
+                                <button class="ban">Unban</button>
+                            <?php } ?>
 
-                            <button class="ban">Ban </button>
-                            <button class="unban">Unban</button>
+                            <?php if($staff['account_status'] == 'active') { ?>
+                                <input type="hidden" name="status" value="banned" />
+                                <button class="ban">Ban </button>
+                            <?php } ?>
                         </form>
                         </td> 
                     </tr>
+                    <?php } ?>
                 </table>
 </div>
 
@@ -122,6 +178,10 @@
 </div>
 
 </main>
+
+<?php 
+    $session->unsetSession('delete_category_error');
+?>
 
 
 

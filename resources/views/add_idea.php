@@ -89,7 +89,7 @@
     <button type="submit">submit</button>
 
     <!-- YOU CAN USE THIS FOR ANY ERROR HANDLING -->
-    <p class="errorMessage">*please fill in all details</p>
+    <p class="errorMessage"><?php echo $session->get('add_idea_error'); ?></p>
 </form>
 
 </div>

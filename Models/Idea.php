@@ -6,10 +6,12 @@ class Idea extends Model{
         // Calculate the offset for the SQL query
         $offset = ($currentPage - 1) * $recordsPerPage;
 
-        $query = 'ORDER BY date DESC';
+        $query = 'WHERE Staff.posts_banned = 0 ORDER BY date DESC';
 
         if($filter == 'oldest'){
-            $query = 'ORDER BY date ASC';
+            $query = 'WHERE Staff.posts_banned = 0 ORDER BY date ASC';
+        }else if($filter == 'most-popular'){
+            $query = 'WHERE Staff.posts_banned = 0 ORDER BY popularity DESC';
         }
 
         // Fetch records from the database
@@ -47,6 +49,19 @@ class Idea extends Model{
             return $stmt->fetch(PDO::FETCH_ASSOC);
         }catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
+        }
+    }
+
+    public function anonymousIdeas(){
+        try {
+            $sql = "SELECT COUNT(*) AS row_count FROM Idea WHERE anonymous = ?";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute(['1']);
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            $row_count = $result['row_count'];
+            return $row_count;
+        } catch (PDOException $e) {
+            echo "Query failed: " . $e->getMessage();
         }
     }
 }

@@ -26,4 +26,17 @@ class Category extends Model{
             }
         }
     }
+
+    public function categoryIdeasCount($category_id){
+        try {
+            $sql = "SELECT COUNT(*) AS row_count FROM Idea_Categories WHERE category_id = ?";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute([$category_id]);
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            $row_count = $result['row_count'];
+            return $row_count;
+        } catch (PDOException $e) {
+            echo "Query failed: " . $e->getMessage();
+        }
+    }
 }

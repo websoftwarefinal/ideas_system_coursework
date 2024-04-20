@@ -1,6 +1,7 @@
 <?php
     require_once __DIR__ . './../../Helpers/SessionManager.php';
     require_once __DIR__ . './../../Controller/IdeasController.php';
+    require_once __DIR__ . './../../Models/Model.php';
 
     $session = new SessionManager();
     $session->sessionProtection();
@@ -10,6 +11,8 @@
     $page = isset($_GET['page']) && $_GET['page'] != '' ? $_GET['page'] : 1;
 
     $filter = isset($_GET['filter']) ? $_GET['filter'] : '';
+
+    $model = new Model;
 ?>
 
 <!DOCTYPE html>
@@ -78,12 +81,12 @@
                 <div class="statsContainer">
                     <div class="stats">
                         <p>Popularity: </p>
-                        <p>123</p>
+                        <p><?php echo $idea['popularity']; ?></p>
                     </div>
 
                     <div class="stats">
                         <p>Views:</p> 
-                        <p>124</p>
+                        <p><?php echo $model->count('Views', $idea['idea_id'], 'idea_id'); ?></p>
                     </div>
                 </div>
 

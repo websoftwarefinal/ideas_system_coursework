@@ -19,16 +19,17 @@ class Model extends Database {
     }
 
     // Method to update record
-    public function update($table, $id, $columns, $data) {
+    public function update($table, $id, $columns, $data, $id_name) {
         try {
             $setStatements = "";
             foreach ($columns as $column) {
                 $setStatements .= "$column = ?, ";
             }
             $setStatements = rtrim($setStatements, ", ");
-            $sql = "UPDATE $table SET $setStatements WHERE id = ?";
+            $sql = "UPDATE $table SET $setStatements WHERE $id_name = ?";
             $params = array_merge($data, [$id]);
-            return $this->pdo->executeQuery($sql, $params);
+            $stmt = $this->pdo->prepare($sql);
+            return $stmt->execute($params);
         } catch (PDOException $e) {
             echo "Query failed: " . $e->getMessage();
         }

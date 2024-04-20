@@ -25,10 +25,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $columns = [
         "first_name", 
         "last_name", 
+        "username",
         "email_address",
         "phone_number", 
         "password", 
         "account_status", 
+        "posts_banned",
         "position", 
         "role_id", 
         "department_id"
@@ -36,6 +38,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
+    $username = $_POST['first_name'] . $_POST['last_name'];
     $email_address = $_POST['email'];
     $phone_number = $_POST['phone_number'];
     $password = $_POST['password'];
@@ -49,10 +52,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $data = [
         $first_name,
         $last_name,
+        $username,
         $email_address,
         $phone_number,
         password_hash($password, PASSWORD_DEFAULT),
         "active",
+        0,
         $position,
         $role_id,
         $department_id

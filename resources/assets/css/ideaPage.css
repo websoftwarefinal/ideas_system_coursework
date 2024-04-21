@@ -1,7 +1,11 @@
 
 
 body{
-    background-color: rgba(94, 94, 94, 0.205);
+    background-image: url(/storage/images/main_image.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 
@@ -15,11 +19,15 @@ body{
     justify-content: center;
     align-items: center;
     height: fit-content;
+<<<<<<< HEAD
     background-image: url(/storage/images/main_image.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+=======
+    
+>>>>>>> parent of 6cd31e6 (Update ideaPage.css)
 }
 
 .wrapper {
@@ -29,7 +37,7 @@ body{
 
 
 
-form{
+#idea, #comment{
     background-color: white;
     width: 100%;
     margin-bottom: 20px;
@@ -120,7 +128,6 @@ header nav .logo img{
     font-size: 1.2rem;
     font-weight: bold;
 }
-
 
 
 
@@ -362,6 +369,7 @@ color: var(--MainColour);
 }
 
 .commentBox .commentDetails{
+    margin: 10px 0;
     font-size: 1.3rem;
 }
 

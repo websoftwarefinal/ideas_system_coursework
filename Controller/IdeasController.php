@@ -1,7 +1,9 @@
 <?php
 require_once __DIR__ . './../Helpers/FileStorageHelper.php';
 require_once __DIR__ . './../Models/Idea.php';
+require_once __DIR__ . './../Models/User.php';
 require_once __DIR__ . './../Helpers/SessionManager.php';
+require_once __DIR__ . './../Helpers/SendEmail.php';
 
 class IdeasController{
     public $total_pages; 
@@ -33,6 +35,9 @@ class IdeasController{
     public function store($columns, $data, $category_id){
         $idea = new Idea();
 
+        $session = new SessionManager;
+        $staff_id = $session->get('staff_id');
+
         try{
             $idea->store("Idea", $columns, $data);
 
@@ -41,10 +46,35 @@ class IdeasController{
             // Storing the category
             $idea->store("Idea_Categories", ["idea_id", "category_id"], [$stored_idea['idea_id'], $category_id]);
 
+            $qa_coordinator_email = $this->qaCoordinatorEmail($staff_id);
+
+            $email = new SendEmail();
+
+            $message = '<b>Idea Posted By: ' . $session->get('first_name') . ' ' . $session->get('last_name') . '</b> <br /> ' .
+            '<b>Title: ' . $data[0] . '</b><br /><br />' . $data[1];
+
+            $email->send($data[0], $message, $qa_coordinator_email);
+
             header("Location: /ideas"); 
         }catch(Exception $e){
             return $e;
         }
+    }
+
+    private function qaCoordinatorEmail($staff_id){
+        $idea = new Idea();
+
+        $staff = $idea->find('Staff', $staff_id, 'staff_id');
+
+        $qa_coordinator = $idea->find('Roles', 'QA Cordinator', 'role_name');
+
+        $role_id = $qa_coordinator['role_id'];
+        
+        $user = new User;
+
+        $result = $user->findQaCoordinator($role_id, $staff['department_id']);
+
+        return $result['email_address'];
     }
 
     public function likesCount($idea_id){

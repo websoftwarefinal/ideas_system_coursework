@@ -108,4 +108,14 @@ class User extends Model{
             echo "Query failed: " . $e->getMessage();
         }
     }
+
+    public function findQaCoordinator($role_id, $department_id) {
+        try {
+            $stmt = $this->pdo->prepare("SELECT * FROM Staff WHERE role_id = ? AND department_id = ?");
+            $stmt->execute([$role_id, $department_id]);
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo "Query failed: " . $e->getMessage();
+        }
+    }
 }

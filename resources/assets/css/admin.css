@@ -71,7 +71,7 @@ header nav .heading{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    position: relative;
+    flex-direction: column;
 }
 
 .main .accountManagement .createAccount{
@@ -89,6 +89,10 @@ header nav .heading{
     width: 100%;
     min-height: 300px;
     margin-top:30px;
+<<<<<<< Updated upstream
+=======
+    flex-grow: 1;
+>>>>>>> Stashed changes
     
 }
 

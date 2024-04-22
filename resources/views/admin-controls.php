@@ -64,7 +64,13 @@
                 </thead>
 
                 <tr>
-                    <td>name of account
+                    <td>
+
+                    <div class="accountInfo">
+                        name of account <br>
+                        <span>Role: Role</span>
+                    </div>
+                   
 
                     <form id="deleteAccount" action="">
                             <button class="deleteAccount">Delete</button>

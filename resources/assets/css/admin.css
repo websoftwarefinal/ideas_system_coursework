@@ -55,7 +55,7 @@ header nav .heading{
     height: fit-content;
 }
 
-.heading{
+.heading .heading{
     align-self: flex-start;
     flex-wrap: wrap;
     height: fit-content;
@@ -146,6 +146,12 @@ header nav .heading{
     font-weight: bold;
 }
 
+.accounts .accountInfo span {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--MainColour);
+}
+
 
 
 
@@ -173,6 +179,8 @@ header nav .heading{
 .accounts p span{
     color: var(--MainColour);
 }
+
+
 
 /* Deadline Management------------------------------ */
 .deadlineManagement {
@@ -309,6 +317,7 @@ canvas{
     width:250px;
     max-width:700px;
 }
+
 
 
 

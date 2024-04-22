@@ -54,7 +54,24 @@
         </div>
 
         <div class="accounts">
-            add table section here
+       
+        <p>Number of Accounts: <span class="accountCount">999</span></p>
+        <table>
+                <thead>
+                    <tr>
+                        <th>Account</th>
+                    </tr>
+                </thead>
+
+                <tr>
+                    <td>name of account
+
+                    <form id="deleteAccount" action="">
+                            <button class="deleteAccount">Delete</button>
+                        </form>
+                    </td> 
+                </tr>
+            </table>
         </div>
     </div>
 

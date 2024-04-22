@@ -59,7 +59,7 @@
         <table>
                 <thead>
                     <tr>
-                        <th>Account</th>
+                        <th>Accounts</th>
                     </tr>
                 </thead>
 
@@ -68,7 +68,7 @@
 
                     <form id="deleteAccount" action="">
                             <button class="deleteAccount">Delete</button>
-                        </form>
+                    </form>
                     </td> 
                 </tr>
             </table>

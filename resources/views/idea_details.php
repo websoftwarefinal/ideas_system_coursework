@@ -74,7 +74,7 @@
         <h2>By <?php echo $idea['anonymous'] != '1' ? $idea['first_name'] . ' ' . $idea['last_name'] : 'Anonymous'; ?>
         <br><span>Date: <?php echo date('Y-m-d H:i:s', strtotime($idea['date'])); ?></span>
         </h2>
-        <a class="backButton" href="Ideas.php">Back</a>
+        <a class="backButton" href="ideas.php">Back</a>
     </div>
 
     <h1><?php echo $idea['title']; ?></h1>
@@ -165,17 +165,12 @@
         
             <div class="box2">
                 <div class="iconContainer">
-                    <!-- <div>
-                            <button class="likeComment"> 
-                            Like</button>
-                            <p>123</p>
-                        </div>
-
-                        <div>
-                            <button class="dislikeComment"> 
-                            Dislike</button>
-                            <p>12</p>
-                        </div> -->
+                <form action="" method="POST">
+                    <input type="hidden" name="" value="" />
+                    <button class="reportComment" style="width: 300px;">
+                        Report 
+                    </button>
+                </form>
                 </div>          
             </div>
     

@@ -116,7 +116,6 @@ header nav .logo img{
 }
 
 #idea .headingContainer h2 span{
-    color: black;
     font-size: 1.2rem;
     font-weight: bold;
 }
@@ -357,6 +356,11 @@ color: var(--MainColour);
     justify-content: center;
     align-items: center;
     gap: 5px;
+
+}
+
+button{
+    cursor: pointer;
 }
 
 .commentBox .commentDetails{

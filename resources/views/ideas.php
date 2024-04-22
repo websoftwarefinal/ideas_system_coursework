@@ -19,6 +19,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/resources/assets/css/reset.css"> <!-- source of reset style sheet www.css-tricks.com -->
     <link rel="stylesheet" href="/resources/assets/css/main.css">
     <link rel="stylesheet" href="/resources/assets/css/ideas.css">

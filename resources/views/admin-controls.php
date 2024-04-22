@@ -79,13 +79,13 @@
             <h3>Update</h3>
             <form action="" class="changeFinalDeadline">
                 <label for="">Final Deadline:</label>
-                <input type="date" name="" id="">
+                <input type="date" name="" id="" placeholder="YYYY/MM/DD">
                 <button>update</button>
             </form>
 
             <form action="" class="changeIdeasDeadline">
                 <label for="">Ideas Deadline:</label>
-                <input type="date" name="" id="">
+                <input type="date" name="" id="" placeholder="YYYY/MM/DD">
                 <button>update</button>
             </form>
 

@@ -51,12 +51,12 @@
         <br>
         <div class="inputWrapper">
             <label for="Username">Username:</label>
-            <input type="text" name="username" id="Username" placeholder="Email" required>
+            <input type="text" name="username" id="Username" placeholder="Enter Email Address" required>
         </div>
 
         <div class="inputWrapper">
             <label for="Password">Password:</label>
-            <input type="password" name="password" id="Password" placeholder="Password" required>
+            <input type="password" name="password" id="Password" placeholder="Enter Password" required>
         </div>
         <button type="submit">Login</button>
         <a href="">Forgot Password?</a>

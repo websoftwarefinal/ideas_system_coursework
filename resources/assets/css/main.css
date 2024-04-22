@@ -46,6 +46,10 @@ form button{
     display: none;
 }
 
+button{
+    cursor: pointer;
+
+}
 
 /*Navigation----------------------------------------------------*/
 

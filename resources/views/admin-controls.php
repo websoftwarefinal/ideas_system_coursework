@@ -57,9 +57,9 @@
             <a href="/create-account" class="createAccount">Add Account</a>
         </div>
 
-        <div class="accounts">
-       
         <p>Number of Accounts: <span class="accountCount"><?php echo count($staffs); ?></span></p>
+
+        <div class="accounts">
         <table>
                 <thead>
                     <tr>
@@ -72,16 +72,18 @@
                         <td>
                             <div class="accountInfo">
                                 <?php echo $staff['first_name'] . ' ' . $staff['last_name']; ?> <br>
-                                <span>Role: <?php echo $staff['role_name']; ?></span>
+                                <span>
+
+                                <!-- Please check if this is correct -->
+                                Email: <?php echo $staff['email']; ?>
+
+                                <br>
+
+                                Role: <?php echo $staff['role_name']; ?>
+                                </span>
                             </div>
 
-                            <!--
-                            <form id="deleteAccount" action="/Controller/StaffsController.php" method="POST">
-                                <input type="hidden" name="_method" value="delete" />
-                                <input type="hidden" name="staff_id" value="<?php //echo $staff['staff_id']; ?>" />
-                                <button class="deleteAccount">Delete</button>
-                            </form>
-                            -->
+                          
                         </td> 
                     </tr>
                 <?php } ?>

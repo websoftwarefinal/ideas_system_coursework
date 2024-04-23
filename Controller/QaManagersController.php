@@ -109,13 +109,16 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 }
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    if($_POST['_method'] == 'download_files'){
-        $documents = new QaManagersController;
-        $documents->zipFiles();
-    }
+    // if($_POST['_method'] == 'download_files'){
+    //     $documents = new QaManagersController;
+    //     $documents->zipFiles();
+    // }
 
     if($_POST['_method'] == 'download_csv'){
         $documents = new QaManagersController;
         $documents->createCSVFile();
+    }else{
+        $documents = new QaManagersController;
+        $documents->zipFiles();
     }
 }

@@ -26,8 +26,8 @@
         <img src="Images/logo.png" alt="university logo">
         
         <ul>
-            <li><a  href="ideas.php">IDEAS</a></li>
-            <li><a class="active" href="qaco_Dashboard.php">DASHBOARD</a></li>
+            <li><a class="active" href="/qa-coordinator">DASHBOARD</a></li>
+            <li><a  href="/ideas">IDEAS</a></li>
          </ul>
 </div>
 

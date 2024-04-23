@@ -40,8 +40,10 @@
         <img src="Images/logo.png" alt="university logo">
         
         <ul>
-            <li><a class="active" href="ideas.php">IDEAS</a></li>
-            <li><a href="qaco_Dashboard.php">DASHBOARD</a></li>
+            <?php if($session->get('role') == 'QA Cordinator') { ?>
+                <li><a href="/qa-coordinator">DASHBOARD</a></li>
+            <?php } ?>
+            <li><a class="active" href="/ideas">IDEAS</a></li>
          </ul>
 </div>
 

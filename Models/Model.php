@@ -104,4 +104,20 @@ class Model extends Database {
             echo "Query failed: " . $e->getMessage();
         }
     }
+
+    public function ideaFilesArray(){
+        $sql = "SELECT *
+            FROM Idea
+            WHERE supporting_document IS NOT NULL";
+
+            try {
+                $stmt = $this->pdo->prepare($sql);
+                // Execute the SQL query
+                $stmt->execute();
+                // Fetch the result
+                return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                echo "Query failed: " . $e->getMessage();
+            }
+    }
 }

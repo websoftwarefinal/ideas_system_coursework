@@ -65,6 +65,10 @@
 </div>
 </main>
 
+<?php
+    $session->unsetSession('error');
+?>
+
 <!-- Scripts -->
 <script src="/resources/assets/js/Menu.js"></script>
 

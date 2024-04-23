@@ -76,7 +76,21 @@
  <div class="download box">
     <h2>Download Center</h2>
     <p>You may download all files after the submission date has passed. <br><br> All documents will be downloaded as a zip file.</p>
-    <button class="download">Download Files</button>
+
+    <div id="downloadsFormContainer">
+        <form action="/Controller/QaManagersController.php" method="POST">
+            <input type="hidden" name="_method" value="download_csv" />
+            
+            <button class="download">Download CSV</button>
+        </form>
+
+        <form action="/Controller/QaManagersController.php" method="POST">
+            <input type="hidden" name="_method" value="download_files" />
+            
+            <button class="download">Download Files</button>
+        </form>
+    </div>
+
     <p class="errorMessage"><?php echo $session->get('down_file_error'); ?></p>
 </div> 
     
@@ -184,6 +198,7 @@
 
 <?php 
     $session->unsetSession('delete_category_error');
+    $session->unsetSession('down_file_error');
 ?>
 
 

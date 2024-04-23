@@ -32,7 +32,7 @@ class QaManagersController{
     public static function zipFiles(){
         $session = new SessionManager;
 
-        $zip_destination = 'ideas.zip';
+        $zip_destination = './../storage/uploads/ideas.zip';
 
         $idea_documents = new Model;
 

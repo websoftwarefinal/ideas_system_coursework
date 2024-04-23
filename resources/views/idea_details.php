@@ -74,7 +74,7 @@
         <h2>By <?php echo $idea['anonymous'] != '1' ? $idea['first_name'] . ' ' . $idea['last_name'] : 'Anonymous'; ?>
         <br><span>Date: <?php echo date('Y-m-d H:i:s', strtotime($idea['date'])); ?></span>
         </h2>
-        <a class="backButton" href="ideas.php">Back</a>
+        <a class="backButton" href="/ideas">Back</a>
     </div>
 
     <h1><?php echo $idea['title']; ?></h1>

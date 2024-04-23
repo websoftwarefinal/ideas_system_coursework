@@ -147,8 +147,8 @@ header nav .heading{
 }
 
 .accounts .accountInfo span {
-    font-size: 1rem;
-    font-weight: bold;
+    font-size: 0.8rem;
+    font-weight: lighter;
     color: var(--MainColour);
 }
 

@@ -1,5 +1,6 @@
 <?php
     require_once __DIR__ . './../../Helpers/SessionManager.php';
+    require_once __DIR__ . './../../Models/User.php';
 
     $session = new SessionManager();
     $session->sessionProtection();
@@ -17,6 +18,9 @@
 
         header("Location: /ideas");
     }
+
+    $users = new User;
+    $staffs = $users->getUsers();
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +59,7 @@
 
         <div class="accounts">
        
-        <p>Number of Accounts: <span class="accountCount">999</span></p>
+        <p>Number of Accounts: <span class="accountCount"><?php echo count($staffs); ?></span></p>
         <table>
                 <thead>
                     <tr>
@@ -63,20 +67,24 @@
                     </tr>
                 </thead>
 
-                <tr>
-                    <td>
+                <?php foreach($staffs as $staff) { ?>
+                    <tr>
+                        <td>
+                            <div class="accountInfo">
+                                <?php echo $staff['first_name'] . ' ' . $staff['last_name']; ?> <br>
+                                <span>Role: <?php echo $staff['role_name']; ?></span>
+                            </div>
 
-                    <div class="accountInfo">
-                        name of account <br>
-                        <span>Role: Role</span>
-                    </div>
-                   
-
-                    <form id="deleteAccount" action="">
-                            <button class="deleteAccount">Delete</button>
-                    </form>
-                    </td> 
-                </tr>
+                            <!--
+                            <form id="deleteAccount" action="/Controller/StaffsController.php" method="POST">
+                                <input type="hidden" name="_method" value="delete" />
+                                <input type="hidden" name="staff_id" value="<?php //echo $staff['staff_id']; ?>" />
+                                <button class="deleteAccount">Delete</button>
+                            </form>
+                            -->
+                        </td> 
+                    </tr>
+                <?php } ?>
             </table>
         </div>
     </div>

@@ -8,6 +8,12 @@ class StaffsController{
 
         header("Location: /qa-manager-controls"); 
     }
+
+    public function delete($staff_id){
+        $staff = new User;
+        $staff->delete('Staff', $staff_id, 'staff_id');
+        header("Location: /admin-controls"); 
+    }
 }
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -33,5 +39,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         ];
 
         $staff->banStaff($staff_id, $columns, $data);
+    }
+
+    if(isset($_POST['_method']) && $_POST['_method'] == 'delete'){
+        $staff = new StaffsController;
+
+        $staff_id = $_POST['staff_id'];
+
+        $staff->delete($staff_id);
     }
 }

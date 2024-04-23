@@ -104,6 +104,10 @@ class QaManagersController{
     }
 }
 
+if($_SERVER['REQUEST_METHOD'] == 'GET'){
+    header("Location: /"); 
+}
+
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if($_POST['_method'] == 'download_files'){
         $documents = new QaManagersController;

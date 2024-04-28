@@ -70,7 +70,7 @@
 
     <!-- Main stats BOX -->
     <div class="box">
-            <h2>Department: <span><?php echo $department['department_name']; ?></span> </h2>
+            <h2>Department: <span><?php echo isset($department['department_name']) ? $department['department_name'] : ''; ?></span> </h2>
                 <table>
                     <thead>
                         <tr>

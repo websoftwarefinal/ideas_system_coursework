@@ -64,4 +64,35 @@ class Idea extends Model{
             echo "Query failed: " . $e->getMessage();
         }
     }
+
+    public function countIdeasInDepartment($department_id){
+        try {
+            $sql = "SELECT COUNT(*) AS row_count 
+            FROM Idea 
+            JOIN Staff ON Idea.staff_id = Staff.staff_id 
+            WHERE department_id = ?";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute([$department_id]);
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            $row_count = $result['row_count'];
+            return $row_count;
+        } catch (PDOException $e) {
+            echo "Query failed: " . $e->getMessage();
+        }
+    }
+
+    public function ideasInDepartment($department_id){
+        try {
+            $sql = "SELECT Idea.*, Staff.first_name, Staff.last_name
+            FROM Idea 
+            JOIN Staff ON Idea.staff_id = Staff.staff_id 
+            WHERE department_id = ?";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute([$department_id]);
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
+        } catch (PDOException $e) {
+            echo "Query failed: " . $e->getMessage();
+        }
+    }
 }

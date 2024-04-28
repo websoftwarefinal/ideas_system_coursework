@@ -1,3 +1,27 @@
+<?php
+    require_once __DIR__ . './../../Helpers/SessionManager.php';
+    require_once __DIR__ . './../../Models/Model.php';
+    require_once __DIR__ . './../../Models/Idea.php';
+    require_once __DIR__ . './../../Models/User.php';
+
+    $session = new SessionManager();
+    $session->sessionProtection();
+
+    $department_id = $session->get('department_id');
+
+    $model = new Model;
+    $department_staff_count = $model->count('Staff', $department_id, 'department_id');
+
+    $idea = new Idea;
+    $department_ideas_count = $idea->countIdeasInDepartment($department_id);
+
+    $department_ideas = $idea->ideasInDepartment($department_id);
+
+    $department = $model->find('Department', $department_id, 'department_id');
+
+    $user = new User;
+    $department_contributors_count = $user->departmentContributorCount($department_id);
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -46,7 +70,7 @@
 
     <!-- Main stats BOX -->
     <div class="box">
-            <h2>Department: <span>Department Name</span> </h2>
+            <h2>Department: <span><?php echo $department['department_name']; ?></span> </h2>
                 <table>
                     <thead>
                         <tr>
@@ -57,9 +81,9 @@
                     </thead>
 
                     <tr>
-                        <td>07</td>
-                        <td>05</td> 
-                        <td>03</td>
+                        <td><?php echo $department_staff_count; ?></td>
+                        <td><?php echo $department_ideas_count; ?></td> 
+                        <td><?php echo $department_contributors_count; ?></td>
                     </tr>
                 </table>
 
@@ -69,45 +93,25 @@
 
         <!-- Main stats BOX -->
     <div class="box">
-        <h2>Top Contributors</h2>
+        <h2>Department Ideas</h2>
             <table class="rankings">
                 <thead>
                     <tr>
-                        <th>Rank</th>
-                        <th>User</th>
-                        <th>Contributions</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Title</th>
+                        <th>Idea</th>
                     </tr>
                 </thead>
 
-                <tr>
-                    <td>1</td>
-                    <td>someone@gmail.com</td> 
-                    <td>12313</td>
-                </tr>
-
-                <tr>
-                    <td>2</td>
-                    <td>someone@gmail.com</td> 
-                    <td>12313</td>
-                </tr>
-
-                <tr>
-                    <td>3</td>
-                    <td>someone@gmail.com</td> 
-                    <td>12313</td>
-                </tr>
-
-                <tr>
-                    <td>4</td>
-                    <td>someone@gmail.com</td> 
-                    <td>12313</td>
-                </tr>
-
-                <tr>
-                    <td>5</td>
-                    <td>someone@gmail.com</td> 
-                    <td>12313</td>
-                </tr>
+                <?php foreach($department_ideas as $idea) { ?>
+                    <tr>
+                        <td><?php echo $idea['first_name']; ?></td>
+                        <td><?php echo $idea['last_name']; ?></td>
+                        <td><?php echo $idea['title']; ?></td> 
+                        <td><?php echo $idea['description']; ?></td>
+                    </tr>
+                <?php } ?>
             </table>
 
     </div>

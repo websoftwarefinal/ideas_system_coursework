@@ -75,7 +75,7 @@
                                 <span>
 
                                 <!-- Please check if this is correct -->
-                                Email: <?php echo $staff['email']; ?>
+                                Email: <?php echo $staff['email_address']; ?>
 
                                 <br>
 

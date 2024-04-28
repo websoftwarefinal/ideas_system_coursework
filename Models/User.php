@@ -118,4 +118,26 @@ class User extends Model{
             echo "Query failed: " . $e->getMessage();
         }
     }
+
+    public function departmentContributorCount($department_id){
+        try {
+            $sql = "SELECT *
+            FROM Staff 
+            WHERE department_id = ?";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute([$department_id]);
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            
+            $count = 0;
+            foreach($result as $staff){
+                if($this->find('Idea', $staff['staff_id'], 'staff_id')){
+                    $count = $count + 1;
+                }
+            }
+            
+            return $count;
+        } catch (PDOException $e) {
+            echo "Query failed: " . $e->getMessage();
+        }
+    }
 }

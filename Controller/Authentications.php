@@ -16,6 +16,7 @@ class Authentications{
             $session->unsetSession('error');
 
             $session->set('staff_id', $auth['staff_id']);
+            $session->set('department_id', $auth['department_id']);
             $session->set('username', $auth['email_address']);
             $session->set('first_name', $auth['first_name']);
             $session->set('last_name', $auth['last_name']);

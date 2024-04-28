@@ -16,8 +16,6 @@ fetch('/Controller/QaManagerStatisticsController.php').then(response => {
 
 function drawChart(chart_data) {
 
-  console.log(chart_data);
-
   google.charts.load('current', {'packages':['corechart']});
   google.charts.setOnLoadCallback(() => {
       // Set Data

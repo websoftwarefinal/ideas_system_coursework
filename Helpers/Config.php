@@ -27,7 +27,7 @@ if($session->get('username')){
     }else if($role == 'Staff'){
         header("Location: /ideas");
     }else if($role == 'QA Manager'){
-        header("Location: /qa-manager-controls");
+        header("Location: /qa-manager-dashboard");
     }else if($role == 'QA Cordinator'){
         header("Location: /qa-cordinator-controls");
     }

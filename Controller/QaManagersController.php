@@ -57,10 +57,12 @@ class QaManagersController{
                 unlink($zip_destination);
             }else{
                 $session->set('down_file_error', 'Failed to download files!');
+                header("Location: /qa-manager-controls"); 
             }
         }catch (PDOException $e) {
             $session->set('down_file_error', 'Failed to create zip: ' . $e->getMessage());
             echo "Failed to create zip: " . $e->getMessage();
+            header("Location: /qa-manager-controls"); 
         }
     }
 
@@ -93,6 +95,7 @@ class QaManagersController{
 
             if(!$csv){
                 $session->set('down_file_error', 'CSV download failed!');
+                header("Location: /qa-manager-controls"); 
             }
 
             // Output CSV data to browser
@@ -100,6 +103,7 @@ class QaManagersController{
         }catch (PDOException $e) {
             $session->set('down_file_error', 'Failed to create csv: ' . $e->getMessage());
             echo "Failed to create zip: " . $e->getMessage();
+            header("Location: /qa-manager-controls"); 
         }
     }
 }

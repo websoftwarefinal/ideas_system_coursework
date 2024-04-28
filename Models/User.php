@@ -118,7 +118,6 @@ class User extends Model{
             echo "Query failed: " . $e->getMessage();
         }
     }
-<<<<<<< HEAD
 
     public function departmentContributorCount($department_id){
         try {
@@ -141,6 +140,4 @@ class User extends Model{
             echo "Query failed: " . $e->getMessage();
         }
     }
-=======
->>>>>>> 680f8e3 (sending emails to qa coordinator and idea poster)
 }

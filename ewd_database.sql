@@ -56,6 +56,7 @@ CREATE TABLE Idea (
     description TEXT NOT NULL,
     date DATETIME NOT NULL,
     anonymous BOOLEAN,
+    popularity INT,
     staff_id INT,
     supporting_document TEXT,
     deadline_id INT,

@@ -1,5 +1,10 @@
 <?php
-// Define routes and their corresponding actions
+
+/*
+    This is the entry point into the application.
+    All the routes various pages are in the $routes array.
+*/
+
 $routes = [
     '/' => './resources/views/index.php',
     '/academics' => './resources/views/academics.php',

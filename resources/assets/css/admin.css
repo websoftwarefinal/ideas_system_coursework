@@ -73,7 +73,7 @@ background-color: var(--MainColourHover);
 
 /* Account Management------------------------------ */
 .main .accountManagement{
-    height: 565px;
+    height: 710px;
 }
 
 .main .accountManagement .createAccount{
@@ -90,7 +90,7 @@ background-color: var(--MainColourHover);
 .accounts{
     width: 100%;
     flex-grow: 3;
-    max-height: 400px;
+    max-height: 500px;
     overflow-y: auto;
     scrollbar-width: 3px;
     overflow-wrap: break-word;
@@ -293,8 +293,12 @@ hr{
     flex-wrap: wrap;
 }
 
+.statistics .tableContainer{
+    width: 100%;
+}
+
 .statistics table{
-    width: 300px;
+    width: 100%;
     font-size: 0.9rem;
     border-collapse: collapse;
     margin: 10px 0;
@@ -327,7 +331,7 @@ hr{
 }
 
 canvas{
-    width:250px;
+    width:300px;
     max-width:700px;
 }
 
@@ -416,4 +420,10 @@ canvas{
     
     }
 
+
+    .accounts{
+        max-height: 300px;
+        
+    }
+    
 }

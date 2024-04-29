@@ -36,7 +36,7 @@ header nav .heading{
 
 .box{
     background-color: white;
-    width: 800px;
+    width: 600px;
     margin: 10px;
     padding: 20px;
 }
@@ -60,6 +60,11 @@ header nav .heading{
     align-self: flex-start;
     flex-wrap: wrap;
     height: fit-content;
+}
+
+button:hover{
+background-color: var(--MainColourHover);
+   
 }
 
 
@@ -289,7 +294,7 @@ hr{
 }
 
 .statistics table{
-    width: 400px;
+    width: 300px;
     font-size: 0.9rem;
     border-collapse: collapse;
     margin: 10px 0;
@@ -322,7 +327,7 @@ hr{
 }
 
 canvas{
-    width:300px;
+    width:250px;
     max-width:700px;
 }
 
@@ -373,14 +378,6 @@ canvas{
     canvas{
         width: 100%;
     }
-
-    .statistics table{
-        width: 100%;
-    }
-    
-    .statistics .tableContainer{
-        width: 100%;
-    }
     
 
 }
@@ -418,14 +415,5 @@ canvas{
         border-radius:  5px;
     
     }
-
-    .statistics table{
-        width: 100%;
-    }
-    
-    .statistics .tableContainer{
-        width: 100%;
-    }
-    
 
 }

@@ -3,7 +3,7 @@ require_once __DIR__ . '/Model.php';
 
 class Deadline extends Model{
     public function createDeadline(){
-        $deadlines = $this->get('Deadline');
+        $deadlines = $this->get('deadline');
 
         if(count($deadlines) == 0){
             $columns = [
@@ -12,11 +12,11 @@ class Deadline extends Model{
         
             $data = ['2024-08-01'];
 
-            $this->store("Deadline", $columns, $data);
+            $this->store("deadline", $columns, $data);
         }
     }
 
     public function getCurrentDeadline(){
-        return $this->lastInsertData('Deadline', 'deadline_id');
+        return $this->lastInsertData('deadline', 'deadline_id');
     }
 }

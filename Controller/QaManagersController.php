@@ -39,7 +39,9 @@ class QaManagersController{
         $files_to_zip = [];
 
         foreach($idea_documents->ideaFilesArray() as $document){
-            array_push($files_to_zip, './..' . $document['supporting_document']);
+            if (file_exists('./..' . $document['supporting_document'])) {
+                array_push($files_to_zip, './..' . $document['supporting_document']);
+            }
         }
 
         try{

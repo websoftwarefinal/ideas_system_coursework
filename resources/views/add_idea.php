@@ -92,6 +92,10 @@
     <p class="errorMessage"><?php echo $session->get('add_idea_error'); ?></p>
 </form>
 
+<?php
+    $session->unsetSession('add_idea_error');
+?>
+
 </div>
 </main>
 

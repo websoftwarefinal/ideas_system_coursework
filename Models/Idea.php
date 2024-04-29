@@ -6,20 +6,25 @@ class Idea extends Model{
         // Calculate the offset for the SQL query
         $offset = ($currentPage - 1) * $recordsPerPage;
 
-        $query = 'WHERE Staff.posts_banned = 0 ORDER BY date DESC';
+        $query = 'ORDER BY date DESC';
 
         if($filter == 'oldest'){
-            $query = 'WHERE Staff.posts_banned = 0 ORDER BY date ASC';
+            $query = 'ORDER BY date ASC';
         }else if($filter == 'most-popular'){
-            $query = 'WHERE Staff.posts_banned = 0 ORDER BY popularity DESC';
+            $query = 'ORDER BY popularity DESC';
+        }else if($filter == 'most-viewed'){
+            $query = 'ORDER BY num_views DESC';
         }
 
         // Fetch records from the database
-        $sql = "SELECT Idea.*, Staff.first_name AS first_name, Staff.last_name AS last_name, Categories.category_name AS category_name
+        $sql = "SELECT Idea.*, Staff.first_name AS first_name, Staff.last_name AS last_name, Categories.category_name AS category_name, COUNT(Views.idea_id) AS num_views
         FROM Idea
         JOIN Staff ON Idea.staff_id = Staff.staff_id
         JOIN Idea_Categories ON Idea.idea_id = Idea_Categories.idea_id
         JOIN Categories ON Idea_Categories.category_id = Categories.category_id
+        LEFT JOIN Views ON Idea.idea_id = Views.idea_id
+        WHERE Staff.posts_banned = 0
+        GROUP BY Idea.idea_id, Staff.first_name, Staff.last_name, Categories.category_name
         $query
         LIMIT :offset, :recordsPerPage";
 

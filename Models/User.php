@@ -140,4 +140,30 @@ class User extends Model{
             echo "Query failed: " . $e->getMessage();
         }
     }
+
+    public function mostActiveUsers(){
+        try {
+            $query = "SELECT Staff.staff_id, 
+                 Staff.email_address, 
+                 Staff.first_name AS first_name, 
+                 Staff.last_name AS last_name, 
+                 COUNT(Login_staff.staff_id) AS login_count,
+                 MAX(Login_staff.date_time) AS date_time
+            FROM Staff
+            LEFT JOIN Login_staff ON Staff.staff_id = Login_staff.staff_id
+            GROUP BY Staff.staff_id, 
+                    Staff.email_address, 
+                    Staff.first_name, 
+                    Staff.last_name
+            ORDER BY login_count DESC
+            LIMIT 5";
+
+            $stmt = $this->pdo->query($query);
+
+            return $stmt->fetchAll();
+
+        } catch (PDOException $e) {
+            echo "Query failed: " . $e->getMessage();
+        }
+    }
 }

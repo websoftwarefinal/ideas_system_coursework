@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . './../Models/Account.php';
+require_once __DIR__ . './../Helpers/SessionManager.php';
 
 class AccountsController{
     function getAccounts(){
@@ -14,7 +15,21 @@ class AccountsController{
 
             header("Location: /admin-controls"); 
         }catch(Exception $e){
+            $session = new SessionManager;
+            $session->set('created_account_error', 'An error occurred: ' . $e->getMessage());
             return $e;
+        }
+    }
+
+    public function emailExists($email){
+        $account = new Account();
+
+        $count = $account->count('Staff', $email, 'email_address');
+
+        if($count > 0){
+            return true;
+        }else{
+            return false;
         }
     }
 }
@@ -44,6 +59,25 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $password = $_POST['password'];
     $role_id = $_POST['role_id'];
     $department_id = $_POST['department_id'];
+
+    // created_account_error
+
+    if($_POST['confirmPwd'] != $_POST['password']){
+        $session = new SessionManager;
+        $session->set('created_account_error', 'Your passwords do not match!');
+
+        header("Location: /create-account"); 
+        return;
+    }
+
+    // Checking if email exists
+    if($account->emailExists($email_address) == true){
+        $session = new SessionManager;
+        $session->set('created_account_error', 'User with that email already exists!');
+
+        header("Location: /create-account"); 
+        return;
+    }
 
     $roles = new Account();
     $role = $roles->find('Roles', $_POST['role_id'], 'role_id');

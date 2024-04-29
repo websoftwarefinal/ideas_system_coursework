@@ -4,6 +4,7 @@ require_once __DIR__ . '/../Models/Role.php';
 require_once __DIR__ . '/../Models/Department.php';
 require_once __DIR__ . '/../Models/User.php';
 require_once __DIR__ . '/../Models/Category.php';
+require_once __DIR__ . '/../Models/Deadline.php';
 
 $role = new Role();
 $role->createRole();
@@ -16,6 +17,9 @@ $user->createAdminUser();
 
 $user = new Category();
 $user->createCategories();
+
+$deadline = new Deadline();
+$deadline->createDeadline();
 
 $session = new SessionManager();
 

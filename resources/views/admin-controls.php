@@ -1,9 +1,15 @@
 <?php
     require_once __DIR__ . './../../Helpers/SessionManager.php';
     require_once __DIR__ . './../../Models/User.php';
+    require_once __DIR__ . './../../Models/Deadline.php';
 
     $session = new SessionManager();
     $session->sessionProtection();
+
+    $deadline = new Deadline;
+    $current_deadline = $deadline->getCurrentDeadline();
+
+    $deadline_date = isset($current_deadline['deadline_date']) ? explode(" ", $current_deadline['deadline_date'])[0] : '';
 
     $role = $session->get('role');
 
@@ -21,6 +27,8 @@
 
     $users = new User;
     $staffs = $users->getUsers();
+
+    $most_active_users = $users->mostActiveUsers();
 ?>
 
 <!DOCTYPE html>
@@ -102,23 +110,23 @@
             <h2>Deadlines</h2>
 
             <div>   
-            <p>Final Deadline: <span class="finalDeadline">12/12/12</span></p>
-            <p>Ideas Submission Deadline: <span class="ideasDeadline">11/12/12</span></p>
+            <p>Final Deadline: <span class="finalDeadline"><?php echo $deadline_date; ?></span></p>
+            <p>Ideas Submission Deadline: <span class="ideasDeadline"><?php echo $deadline_date; ?></span></p>
             </div>
 
         
         <!-- UPDATE DEADLINES--------------------------- -->
           
             <h3>Update</h3>
-            <form action="" class="changeFinalDeadline">
+            <form action="/Controller/DeadlinesController.php" class="changeFinalDeadline" method="POST">
                 <label for="">Final Deadline:</label>
-                <input type="date" name="" id="" placeholder="YYYY/MM/DD">
+                <input type="date" name="deadline_date" id="" placeholder="YYYY/MM/DD" value="<?php echo $deadline_date; ?>">
                 <button>update</button>
             </form>
 
-            <form action="" class="changeIdeasDeadline">
+            <form action="/Controller/DeadlinesController.php" class="changeIdeasDeadline" method="POST">
                 <label for="">Ideas Deadline:</label>
-                <input type="date" name="" id="" placeholder="YYYY/MM/DD">
+                <input type="date" name="deadline_date" id="" placeholder="YYYY/MM/DD" value="<?php echo $deadline_date; ?>">
                 <button>update</button>
             </form>
 
@@ -147,27 +155,19 @@
                         <tr>
                             <th>Rank</th>
                             <th>User</th>
-                            <th>Time</th>
+                            <th>Last Login</th>
                         </tr>
                     </thead>
-
-                    <tr>
-                        <td>1</td>
-                        <td>someone@gmail.com</td> 
-                        <td>12313</td>
-                    </tr>
-
-                    <tr>
-                        <td>2</td>
-                        <td>someone@gmail.com</td> 
-                        <td>12313</td>
-                    </tr>
-
-                    <tr>
-                        <td>3</td>
-                        <td>someone@gmail.com</td> 
-                        <td>12313</td>
-                    </tr>
+                    
+                    <?php $count = 0; ?>
+                    <?php foreach($most_active_users as $user) { ?>
+                        <?php $count = $count + 1; ?>
+                        <tr>
+                            <td><?php echo $count; ?></td>
+                            <td><?php echo $user['email_address']; ?></td> 
+                            <td><?php echo $user['date_time']; ?></td>
+                        </tr>
+                    <?php } ?>
                 </table>
 
             </div>
@@ -175,6 +175,7 @@
 
 
         <!-- MOST VIEWED PAGE---------------------------- -->
+            <!--
             <div class="viewedPage">
                 <h3>Most Viewed Page</h3>
                 <table>
@@ -206,6 +207,7 @@
                 </table>
 
             </div>
+            -->
             </div>
             
         </div>

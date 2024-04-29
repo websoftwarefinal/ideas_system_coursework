@@ -107,24 +107,26 @@ YOU CAN CHOOSE TO USE OTHER METHOD IF YOU WANT -->
 
     <div class="inputWrapper">
     <label for="pwd">Password:*</label>
-    <input type="password" name="password" id="pwd" placeholder="Enter Password" required>
+    <input type="password" name="password" id="pwd" minlength="6" placeholder="Enter Password" required>
     </div>
 
     <div class="inputWrapper">
     <label for="confirmPwd">Confirm Password:*</label>
-    <input type="password" name="confirmPwd" id="confirmPwd" placeholder="Confirm Password" required>
+    <input type="password" name="confirmPwd" minlength="6" id="confirmPwd" placeholder="Confirm Password" required>
     </div>
 
     <button type="submit">Create</button>
 
     <!-- YOU CAN USE THIS FOR ANY ERROR HANDLING -->
-    <p class="errorMessage">*please fill in all details</p>
+    <p class="errorMessage"><?php echo $session->get('created_account_error'); ?></p>
 </form>
 
 </div>
 </main>
 
-
+<?php
+    $session->unsetSession('created_account_error');
+?>
 
 <!-- Scripts -->
 <script src="/resources/assets/js/dropDown.js"></script>

@@ -2,6 +2,7 @@
 require_once __DIR__ . './../Helpers/FileStorageHelper.php';
 require_once __DIR__ . './../Models/Idea.php';
 require_once __DIR__ . './../Models/User.php';
+require_once __DIR__ . './../Models/Deadline.php';
 require_once __DIR__ . './../Helpers/SessionManager.php';
 require_once __DIR__ . './../Helpers/SendEmail.php';
 
@@ -113,23 +114,37 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         "date",
         "supporting_document", 
         "anonymous",
-        "staff_id"
+        "staff_id",
+        "deadline_id"
     ]; // Assuming these are your columns
+
+    $deadline = new Deadline;
+    $current_deadline = $deadline->getCurrentDeadline();
 
     $title = $_POST['title'];
     $description = $_POST['description'];
     $date = date('Y-m-d H:i:s');
     $supporting_document = isset($_FILES["supporting_document"]) && $_FILES["supporting_document"]["error"] == UPLOAD_ERR_OK ? FileStorageHelper::saveFile("supporting_document") : null;
     $anonymous = isset($_POST['anonymous']) && $_POST['anonymous'] == 1 ? 1 : 0;
+    $deadline_id = isset($current_deadline['deadline_id']) ? $current_deadline['deadline_id'] : null;
 
     $session = new SessionManager;
+
+    // Checking the deadline end date and rejecting new idea if current date is greater than end date
+    if(isset($current_deadline['deadline_date']) && $current_deadline['deadline_date'] < date('Y-m-d')){
+        $session->set('add_idea_error', 'Failed to submit idea: Idea submission deadline past!');
+        header("Location: /add-idea");
+        return;
+    }
+
     $data = [
         $title,
         $description,
         $date,
         $supporting_document,
         $anonymous,
-        $session->get('staff_id')
+        $session->get('staff_id'),
+        $deadline_id
     ];
 
     $idea->store($columns, $data, $_POST['category_id']);

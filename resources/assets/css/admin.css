@@ -40,7 +40,7 @@ button:hover{
 
 .box{
     background-color: white;
-    width: 800px;
+    width: 600px;
     margin: 10px;
     padding: 20px;
 }
@@ -59,14 +59,11 @@ button:hover{
     height: fit-content;
 }
 
-.heading{
-    margin: auto;
+.heading .heading{
     align-self: flex-start;
     flex-wrap: wrap;
     height: fit-content;
 }
-
-
 
 
 
@@ -75,6 +72,10 @@ button:hover{
 /* Account Management------------------------------ */
 .main .accountManagement{
     height: 565px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: column;
 }
 
 .main .accountManagement .createAccount{
@@ -88,13 +89,11 @@ button:hover{
     font-size: 1rem;
 }
 
-.accounts{
+.main .accountManagement .accounts{
     width: 100%;
-    flex-grow: 3;
-    max-height: 400px;
-    overflow-y: auto;
-    scrollbar-width: 3px;
-    overflow-wrap: break-word;
+    min-height: 300px;
+    margin-top:30px;
+    
 }
 
 
@@ -145,20 +144,11 @@ button:hover{
     align-items: center;
 }
 
-
-
-
 .accounts table td p span{
     margin-left:20px;
     color: var(--MainColour);
     font-weight: bold;
 }
-
-.accounts .accountInfo{
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
 
 .accounts .accountInfo span {
     font-size: 1rem;
@@ -168,7 +158,8 @@ button:hover{
 
 
 
-tbody tr{
+
+.accounts tbody tr{
     border-bottom: 1px solid gray;
     
 }
@@ -184,13 +175,12 @@ tbody tr{
     margin: 10px 0;
 }
 
-.accountManagement p{
+.accounts p{
     font-weight: bold;
     font-size: 1.5rem;
-    margin: 20px 0 5px 0;
   }
 
-.accountManagement p span{
+.accounts p span{
     color: var(--MainColour);
 }
 
@@ -295,7 +285,7 @@ hr{
 }
 
 .statistics table{
-    width: 400px;
+    width: 300px;
     font-size: 0.9rem;
     border-collapse: collapse;
     margin: 10px 0;
@@ -328,7 +318,7 @@ hr{
 }
 
 canvas{
-    width:300px;
+    width:250px;
     max-width:700px;
 }
 
@@ -379,14 +369,6 @@ canvas{
     canvas{
         width: 100%;
     }
-
-    .statistics table{
-        width: 100%;
-    }
-    
-    .statistics .tableContainer{
-        width: 100%;
-    }
     
 
 }
@@ -424,14 +406,5 @@ canvas{
         border-radius:  5px;
     
     }
-
-    .statistics table{
-        width: 100%;
-    }
-    
-    .statistics .tableContainer{
-        width: 100%;
-    }
-    
 
 }

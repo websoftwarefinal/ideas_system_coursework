@@ -133,7 +133,7 @@
             </div>
                
 
-            <div>
+            <div class="tableContainer">
 
           <!-- ACTIVE USERS---------------------------- -->
             <div class="activeUser">

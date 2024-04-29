@@ -2,6 +2,7 @@
     require_once __DIR__ . './../../Helpers/SessionManager.php';
     require_once __DIR__ . './../../Controller/IdeasController.php';
     require_once __DIR__ . './../../Models/Model.php';
+    require_once __DIR__ . './../../Models/Deadline.php';
 
     $session = new SessionManager();
     $session->sessionProtection();
@@ -13,6 +14,12 @@
     $filter = isset($_GET['filter']) ? $_GET['filter'] : '';
 
     $model = new Model;
+
+    // Getting the deadline date
+    $deadline = new Deadline;
+    $current_deadline = $deadline->getCurrentDeadline();
+
+    $deadline_date = isset($current_deadline['deadline_date']) ? explode(" ", $current_deadline['deadline_date'])[0] : '';
 ?>
 
 <!DOCTYPE html>
@@ -58,8 +65,8 @@
 
     <div class="deadline">
         <h2>Deadlines</h2>
-        <p>Final: 12/12/12</p>
-        <p>Ideas: 12/12/12</p>
+        <p>Final: <?php echo $deadline_date; ?></p>
+        <p>Ideas: <?php echo $deadline_date; ?></p>
     </div>
 
     <div class="heading">

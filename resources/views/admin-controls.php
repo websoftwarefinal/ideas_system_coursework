@@ -45,42 +45,6 @@
 <main class="main">
 <div class="wrapper flexbox">
 
-<!-- Heading -->
-<div class="box">
-    <h2>Administrator Page</h2>
-</div>
-
-
-<!-- DEADLINE MANAGEMENT BOX---------------------------- -->
-<div class="deadlineManagement box">
-
-<!-- DEADLINE VIEWS---------------------------- -->
-    <h2>Deadlines</h2>
-
-    <div>   
-    <p>Final Deadline: <span class="finalDeadline">12/12/12</span></p>
-    <p>Ideas Submission Deadline: <span class="ideasDeadline">11/12/12</span></p>
-    </div>
-
-
-<!-- UPDATE DEADLINES--------------------------- -->
-  
-    <h3>Update</h3>
-    <form action="" class="changeFinalDeadline">
-        <label for="">Final Deadline:</label>
-        <input type="date" name="" id="" placeholder="YYYY/MM/DD">
-        <button>update</button>
-    </form>
-
-    <form action="" class="changeIdeasDeadline">
-        <label for="">Ideas Deadline:</label>
-        <input type="date" name="" id="" placeholder="YYYY/MM/DD">
-        <button>update</button>
-    </form>
-
-
-</div>
-
 
 <!-- ACCOUNT MANAGEMENT BOX---------------------------- -->
     <div class="accountManagement box">
@@ -118,8 +82,38 @@
     </div>
 
     
+    <div class="container">
 
 
+<!-- DEADLINE MANAGEMENT BOX---------------------------- -->
+        <div class="deadlineManagement box">
+
+        <!-- DEADLINE VIEWS---------------------------- -->
+            <h2>Deadlines</h2>
+
+            <div>   
+            <p>Final Deadline: <span class="finalDeadline">12/12/12</span></p>
+            <p>Ideas Submission Deadline: <span class="ideasDeadline">11/12/12</span></p>
+            </div>
+
+        
+        <!-- UPDATE DEADLINES--------------------------- -->
+          
+            <h3>Update</h3>
+            <form action="" class="changeFinalDeadline">
+                <label for="">Final Deadline:</label>
+                <input type="date" name="" id="" placeholder="YYYY/MM/DD">
+                <button>update</button>
+            </form>
+
+            <form action="" class="changeIdeasDeadline">
+                <label for="">Ideas Deadline:</label>
+                <input type="date" name="" id="" placeholder="YYYY/MM/DD">
+                <button>update</button>
+            </form>
+
+
+        </div>
 
 
 <!-- STATISTICS BOX---------------------------- -->
@@ -205,7 +199,7 @@
             </div>
             
         </div>
-   
+    </div>
 
 </div>
 </main>

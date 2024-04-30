@@ -1,17 +1,28 @@
 # EWSD Ideas system coursework
 
-## Description
+Welcome to the EWSD Ideas system coursework! This repository contains a PHP application structured with MVC (Model-View-Controller) architecture.
 
-This project is developed using the MVC (Model-View-Controller) architecture pattern. It aims to provide a structured and organized approach to building PHP web applications.
+## Prerequisites
+Before running the application, ensure you have the following prerequisites installed:
 
-## Directory Structure
-
-- `resources/views`: This directory contains all the view files for the application. Views are responsible for presenting the user interface to the users.
-
-- `Models`: This directory holds all the model files for the application. Models represent the application's data and business logic.
-
-- `Controllers`: This directory houses all the controller files for the application. Controllers handle user requests, update models as necessary, and select the appropriate views to render the response.
+- XAMPP: Download and install XAMPP from [here](https://www.apachefriends.org/index.html).
+- Composer: Install Composer from [here](https://getcomposer.org/download/).
+- PHPMailer: Install PHPMailer by running `composer require phpmailer/phpmailer` in your terminal.
 
 ## Getting Started
+To run the application, follow these steps:
 
-1. Clone the repository:
+1. Clone this repository to your local machine.
+2. Import the provided database into your MySQL database management system.
+3. Open your terminal and navigate to the project directory using the `cd` command.
+4. Start the PHP built-in server by running the following command:
+5. Once the server is running, access the application by typing the following link into your browser:
+
+
+## Application Structure
+- **Models**: All business logic is located in the `Models` folder, where you'll find all the model classes.
+- **Controllers**: The interface between the database and the views is handled by the controllers. You can find all controllers in the `Controllers` folder.
+- **Views**: Frontend views are stored in the `resources/views` folder.
+
+## Additional Notes
+- Make sure to configure your database credentials in the appropriate files for database connectivity. All credentials should be added in the .env file.

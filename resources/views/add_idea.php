@@ -28,7 +28,7 @@
     <nav>
         <div class=logo>
             <img src="/storage/images/logo.png" alt="University Logo.">
-            <a href="Ideas.php">IDEAS</a>
+            <a href="/ideas">IDEAS</a>
         </div>
     
         <?php require_once __DIR__ . '/layouts/account_dropdown.php'; ?>

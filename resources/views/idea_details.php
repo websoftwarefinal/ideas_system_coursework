@@ -147,7 +147,7 @@
 
     <div class="container">
         <p>List By: </p>
-        <select name="listBy" onchange="redirectToPage(this.value)" value="<?php echo $filter; ?>" class="listBy">
+        <select name="listBy" onchange="redirectToPage(<?php echo $idea_id; ?>, this.value)" value="<?php echo $filter; ?>" class="listBy">
             <option value="" disabled selected hidden>None</option>
             <option value="latest" <?php echo $filter == 'latest' ? 'selected' : ''; ?>>Latest</option>
             <option value="oldest" <?php echo $filter == 'oldest' ? 'selected' : ''; ?>>Oldest</option>
@@ -188,7 +188,7 @@
 <!-- Scripts -->
 <script src="/resources/assets/js/dropDown.js"></script>
 <script>
-    function redirectToPage(value) {
+    function redirectToPage(idea_id, value) {
         // Get the selected value
         let selectedValue = value;
 
@@ -196,7 +196,7 @@
         let page = urlParams.get('page');
 
         // Redirect to the selected page
-        window.location.href = '/idea-details?idea_id=15&filter=' + value;
+        window.location.href = '/idea-details?idea_id=' + idea_id + '&filter=' + value;
     }
 </script>
 

@@ -20,8 +20,8 @@ To run the application, follow these steps:
 
 
 ## Application Structure
-- **Models**: All business logic is located in the `Models` folder, where you'll find all the model classes.
-- **Controllers**: The interface between the database and the views is handled by the controllers. You can find all controllers in the `Controllers` folder.
+- **Models**: All business logic and interaction with the database is located in the `Models` folder, where you'll find all the model classes.
+- **Controllers**: The interface between the models and the views is handled by the controllers. You can find all controllers in the `Controllers` folder.
 - **Views**: Frontend views are stored in the `resources/views` folder.
 
 ## Additional Notes

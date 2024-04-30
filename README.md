@@ -15,8 +15,8 @@ To run the application, follow these steps:
 1. Clone this repository to your local machine.
 2. Import the provided database into your MySQL database management system.
 3. Open your terminal and navigate to the project directory using the `cd` command.
-4. Start the PHP built-in server by running the following command:
-5. Once the server is running, access the application by typing the following link into your browser:
+4. Start the PHP built-in server by running the following command: php -S localhost:8000
+5. Once the server is running, access the application by typing the following link into your browser: http://localhost:8000
 
 
 ## Application Structure

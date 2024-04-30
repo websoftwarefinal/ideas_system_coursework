@@ -78,7 +78,7 @@ CREATE TABLE Comments (
     comment_id INT AUTO_INCREMENT PRIMARY KEY,
     author_id INT,
     idea_id INT,
-    date DATE NOT NULL,
+    date DATETIME NOT NULL,
     anonymous BOOLEAN,
     text TEXT NOT NULL,
     deadline_id INT,

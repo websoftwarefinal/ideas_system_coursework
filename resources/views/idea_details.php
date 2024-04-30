@@ -18,8 +18,10 @@
 
     $ideas->updatePopularity($idea_id);
 
+    $filter = isset($_GET['filter']) ? $_GET['filter'] : '';
+
     $com = new CommentsController;
-    $comments = $com->index($idea_id);
+    $comments = $com->index($idea_id, $filter);
 
     // Getting the hostname for the application
     $hostname = $_SERVER['HTTP_HOST'];
@@ -144,11 +146,11 @@
     </div>
 
     <div class="container">
-        <p>List By:</p>
-        <select name="listBy" class="listBy">
-        <option value="" disabled selected hidden>None</option>
-        <option value="latest">Latest</option>
-        <option value="oldest">Oldest</option>
+        <p>List By: </p>
+        <select name="listBy" onchange="redirectToPage(this.value)" value="<?php echo $filter; ?>" class="listBy">
+            <option value="" disabled selected hidden>None</option>
+            <option value="latest" <?php echo $filter == 'latest' ? 'selected' : ''; ?>>Latest</option>
+            <option value="oldest" <?php echo $filter == 'oldest' ? 'selected' : ''; ?>>Oldest</option>
         </select>
     </div>
 
@@ -185,5 +187,18 @@
 
 <!-- Scripts -->
 <script src="/resources/assets/js/dropDown.js"></script>
+<script>
+    function redirectToPage(value) {
+        // Get the selected value
+        let selectedValue = value;
+
+        let urlParams = new URLSearchParams(window.location.search);
+        let page = urlParams.get('page');
+
+        // Redirect to the selected page
+        window.location.href = '/idea-details?idea_id=15&filter=' + value;
+    }
+</script>
+
 </body>
 </html>

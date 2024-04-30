@@ -4,10 +4,10 @@ require_once __DIR__ . './../Helpers/SessionManager.php';
 require_once __DIR__ . './../Helpers/SendEmail.php';
 
 class CommentsController{
-    public function index($idea_id){
+    public function index($idea_id, $filter){
         $comment = new Comment();
 
-        return $comment->ideaComments($idea_id);
+        return $comment->ideaComments($idea_id, $filter);
     }
 
     public function store($columns, $data, $idea_id){
@@ -53,7 +53,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     $staff_id = $session->get('staff_id');
     $idea_id = $_POST['idea_id'];
-    $date = date('Y-m-d');
+    $date = date('Y-m-d H:i:s');
     $text = $_POST['comment'];
     $anonymous = isset($_POST['anonymous']) ? $_POST['anonymous'] : null;
 

@@ -2,12 +2,18 @@
 require_once __DIR__ . '/Model.php';
 
 class Comment extends Model{
-    public function ideaComments($idea_id){
+    public function ideaComments($idea_id, $filter){
+        $orderBy = $filter == 'ORDER BY Comments.comment_id ASC';
+
+        if($filter == 'latest'){
+            $orderBy = 'ORDER BY Comments.comment_id DESC';
+        }
+
         $sql = "SELECT Comments.*, Staff.first_name AS first_name, Staff.last_name AS last_name
             FROM Comments
             JOIN Staff ON Comments.author_id = Staff.staff_id
             WHERE Comments.idea_id = :idea_id
-            ORDER BY Comments.date ASC";
+            $orderBy";
 
         try {
             $stmt = $this->pdo->prepare($sql);
